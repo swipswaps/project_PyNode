@@ -1,22 +1,23 @@
 const spawn = require("child_process").spawn;
+const pyPath = "./helpers/data_processing.py";
 
-const pyReq = data => {
-  console.log("cwd", process.cwd());
-  let py = spawn("python", ["./helpers/data_processing.py"]);
-  console.log("py", py);
-  let dataString = "";
+const pyReq = (cmd, data) => {
+  return new Promise((resolve, reject) => {
+    const py = spawn(cmd, [pyPath]);
+    let stdoutData = "";
 
-  //once we get data back
-  py.stdout.on("data", data => {
-    dataString += data.toString();
+    py.stdin.write(JSON.stringify(data));
+    py.stdin.end();
+
+    py.stdout.on("data", data => {
+      stdoutData += data.toString();
+    });
+
+    py.stdout.on("end", function() {
+      //console.log("sum of numbers=", stdoutData);
+      resolve(stdoutData);
+    });
   });
-
-  py.stdout.on("end", function() {
-    console.log("sum of numbers=", dataString);
-  });
-
-  py.stdin.write(JSON.stringify(data));
-  py.stdin.end();
 };
 
 module.exports = pyReq;

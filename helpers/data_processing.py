@@ -2,7 +2,6 @@
 
 import sys, json, numpy as np
 
-#read data from stdin
 def read_in():
     lines = sys.stdin.readlines()
     return json.loads(lines[0])
@@ -17,5 +16,4 @@ def main():
     print lines_sum
 
 if __name__ == '__main__':
-    print('I am in python')
     main()
