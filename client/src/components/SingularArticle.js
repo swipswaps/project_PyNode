@@ -19,7 +19,7 @@ export const MultipleArticles = props => {
         return (
           <div key={i}>
             <SingularArticle article={art} />
-            <D3_container name={"svg_" + i} />
+            <D3_container name={"svg_" + i} article_name={art} />
           </div>
         );
       })}
