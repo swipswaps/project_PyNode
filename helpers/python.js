@@ -13,8 +13,9 @@ const pyReq = (cmd, data) => {
       stdoutData += data.toString();
     });
 
+    py.stderr.on("data", data => console.log(`stderr: ${data}`));
+
     py.stdout.on("end", function() {
-      //console.log("sum of numbers=", stdoutData);
       resolve(stdoutData);
     });
   });
