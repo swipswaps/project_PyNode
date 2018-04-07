@@ -3,17 +3,19 @@
 import sys, json, numpy as np
 
 def read_in():
-    lines = sys.stdin.readlines()
-    return json.loads(lines[0])
+    lines = sys.stdin.readline()
+    lines = json.loads(lines)
+    return lines['fields']
 
 def main():
     lines = read_in()
+    #without encode('utf-8')
+    #python throws error UnicodeEncodeError
+    #'ascii codec can't encode character ...
+    output = lines[u'bodyText'].encode('utf-8')
 
-    np_lines = np.array(lines)
-
-    lines_sum = np.sum(np_lines)
-
-    print lines_sum
+    #add text processing code here and printout results
+    print output
 
 if __name__ == '__main__':
     main()

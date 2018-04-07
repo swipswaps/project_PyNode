@@ -6,22 +6,24 @@ class D3_container extends Component {
     values: [1, 2, 3, 4]
   };
 
-  sendData = (url, data) => {
-    return fetch(url, {
+  sendData = async (url, data) => {
+    const response = await fetch(url, {
       body: JSON.stringify(data),
       headers: new Headers({
         "Content-Type": "application/json"
       }),
       method: "POST"
-    })
-      .then(response => console.log(response))
-      .catch(err => console.log(err));
-    //.then(response => console.log("Success", response));
+    });
+    const json = await response.json();
+    return json;
   };
 
   changeData = () => {
     this.setState({ values: [4, 3, 2, 1] });
-    this.sendData("/react", { privet: this.props.article_name.webUrl });
+    console.log("this.props.article_name", this.props.article_name);
+    this.sendData("/react", { articleID: this.props.article_name.id }).then(
+      data => console.log("data", data)
+    );
   };
 
   render() {
