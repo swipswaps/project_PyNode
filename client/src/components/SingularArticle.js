@@ -1,7 +1,7 @@
 import React from "react";
 import D3_container from "./d3_con";
 
-const SingularArticle = ({ article: { webTitle, webUrl } }) => {
+const SingularArticle = ({ article: { webTitle, webUrl, id } }) => {
   return (
     <div>
       <a href={webUrl}>

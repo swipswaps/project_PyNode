@@ -2,15 +2,6 @@ import React, { Component } from "react";
 import { MultipleArticles } from "./SingularArticle";
 import { guardianRequest } from "../utils/fetch";
 
-const fake_data = {
-  article: {
-    webTitle:
-      "Putin blames criminal negligence for death toll in Kemerovo fire",
-    webUrl:
-      "https://www.theguardian.com/world/2018/mar/27/putin-blames-criminal-negligence-for-death-toll-in-kemerovo-fire"
-  }
-};
-
 //guardianRequest().then(data => console.log("data", data));
 
 export class Card extends Component {
