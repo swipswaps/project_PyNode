@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { MultipleArticles } from "./SingularArticle";
-import { guardianRequest } from "../utils/fetch";
+import { guardianRequest } from "../utils/fetchGuard";
+import { D3_container } from "./d3_con";
 
 //guardianRequest().then(data => console.log("data", data));
 
 export class Card extends Component {
   state = {
-    articles: ""
+    articles: "",
+    articleText: ""
   };
 
   componentDidMount() {
@@ -21,9 +23,9 @@ export class Card extends Component {
       return <h3>it takes too long</h3>;
     }
     return (
-      <div>
-        <h1> Guardian articles will be displayed here </h1>
-        <MultipleArticles articles={this.state.articles} />
+      <div className="pageCon">
+        <MultipleArticles articles={this.state.articles} className="sidebar" />
+        {/* <Tester /> */}
       </div>
     );
   }
