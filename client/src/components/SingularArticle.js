@@ -10,10 +10,6 @@ const SingularArticle = ({ article: { webTitle, webUrl, id } }) => {
   );
 };
 
-const Tester = props => {
-  return <svg className="d3_display" />;
-};
-
 export class MultipleArticles extends Component {
   state = {
     articleText: ""
@@ -23,14 +19,14 @@ export class MultipleArticles extends Component {
     sendData("/react", { articleID: this.props.articles[index].id }).then(
       data => {
         console.log("data", data);
-        this.setState({ articleText: data });
+        this.props.onTextUpdate(data.result);
       }
     );
   };
 
   render() {
     console.log("render was called");
-    console.log("articleText", this.state.articleText);
+    console.log("this.props", typeof this.props.onTextUpdate);
     return (
       <div className="titlesCon">
         {this.props.articles.map((art, i) => {
@@ -44,11 +40,6 @@ export class MultipleArticles extends Component {
             </div>
           );
         })}
-        {this.state.articleText ? (
-          <p>{this.state.articleText.result}</p>
-        ) : (
-          <div>Loading...</div>
-        )}
       </div>
     );
   }
