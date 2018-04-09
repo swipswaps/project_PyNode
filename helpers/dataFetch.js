@@ -10,7 +10,7 @@ const dataReq = async (req, res, next) => {
     const g_url = guardian_path + articleID + guardian_key;
     let result = await fetch(g_url);
     let json = await result.json();
-    result = await pyReq("python2", json.response.content);
+    result = await pyReq("python3", json.response.content);
     res.send(JSON.stringify({ result: result }));
     console.log("we can send this number back to front end now", result);
   } catch (err) {
