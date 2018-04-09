@@ -15,7 +15,7 @@ def main():
     output = lines[u'bodyText'].encode('utf-8')
 
     #add text processing code here and printout results
-    print output
+    print(output)
 
 if __name__ == '__main__':
     main()

@@ -25,8 +25,7 @@ export class MultipleArticles extends Component {
   };
 
   render() {
-    console.log("render was called");
-    console.log("this.props", typeof this.props.onTextUpdate);
+    console.log("this.props.arrayArticles", this.props.arrayArticles);
     return (
       <div className="titlesCon">
         {this.props.articles.map((art, i) => {
@@ -36,7 +35,6 @@ export class MultipleArticles extends Component {
               <button onClick={() => this.changeData(i)} article={art}>
                 pressMe
               </button>
-              {/* <D3_container name={"svg_" + i} article_name={art} /> */}
             </div>
           );
         })}
