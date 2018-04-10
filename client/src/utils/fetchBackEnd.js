@@ -9,5 +9,3 @@ export const sendData = async (url, data) => {
   const json = await response.json();
   return json;
 };
-
-//export sendData;
