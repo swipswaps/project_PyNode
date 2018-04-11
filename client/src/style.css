@@ -1,0 +1,39 @@
+.pageCon {
+  display: flex;
+  flex-direction: row;
+}
+
+.titlesCon {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  width: 30vw;
+  flex-wrap: wrap;
+  margin-right: 2vw;
+}
+
+#root {
+  display: flex;
+  justify-content: row;
+}
+
+/*.sidebar {
+  height: 100vh;
+  overflow: auto;
+  background: "#eee";
+}*/
+
+.sidebarItem {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  /*text-overflow: ellipsis;
+  overflow: hidden;*/
+  padding: 5px 10px;
+}
+
+.d3_display {
+  align-self: center;
+  width: 50vw;
+  height: 100vh;
+  display: inline-block;
+}
