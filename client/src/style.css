@@ -3,13 +3,19 @@
   flex-direction: row;
 }
 
+.header {
+  background-color: #3aafa9;
+  padding: 1rem;
+  width: 95vw;
+}
+
 .titlesCon {
   display: flex;
   flex-direction: column;
-  border-style: solid;
   width: 30vw;
   flex-wrap: wrap;
   margin-right: 2vw;
+  background-color: #def2f1;
 }
 
 #root {
@@ -32,8 +38,26 @@
 }
 
 .d3_display {
-  align-self: center;
+  align-self: flex-start;
   width: 50vw;
   height: 100vh;
   display: inline-block;
+}
+
+a p {
+  font-size: 1rem;
+  color: #17252a;
+  outline: none;
+}
+
+a {
+  outline: none;
+}
+
+h1 {
+  color: #feffff;
+}
+
+a: visited {
+  color: #324f17;
 }
