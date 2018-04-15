@@ -31,7 +31,8 @@ def process_article(corpus):
     final = words_freq[-15:]
     max_value=final[-1:][0][1]
     scoreFunc=sigmoid(max_value)
-    result=[]
+    # result={}
+    result = []
 
     for i in range(len(final)):
         obj={}
@@ -51,9 +52,11 @@ def process_article(corpus):
             obj['color']='green'
             obj['score']=obj['freq']
 
+        # key = "key"+ str(i)
+        # result[key] = obj
         result.append(obj)
 
-    return result
+    return json.dumps(result);
 
 def sigmoid(max):
     c=1

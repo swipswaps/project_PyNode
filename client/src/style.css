@@ -37,9 +37,9 @@
   padding: 5px 10px;
 }
 
-.d3_display {
+#d3_display {
   align-self: flex-start;
-  width: 50vw;
+  width: 60vw;
   height: 100vh;
   display: inline-block;
 }
