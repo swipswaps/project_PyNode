@@ -2,63 +2,84 @@ import React, { Component } from "react";
 import * as d3 from "d3";
 
 class Circles extends Component {
-  height = 300;
-  width = 300;
+  width = 0.6 * window.innerWidth;
+  height = 0.8 * window.innerHeight;
+  data = JSON.parse(this.props.values).slice(0, 15);
+  data = this.data.slice(0, 15);
+  scaleIt = this.height;
+  radius = 4;
+  fontSize = 4;
+  t = d3.transition().duration(500);
+  forceX = 2;
+  forceY = 2.5;
+  radiusX = 30;
+  radiusY = 10;
+  minSize = this.data[this.data.length - 1].score;
+  maxSize = this.data[0].score;
 
-  randomColor(colorScheme) {
-    return colorScheme[Math.floor(Math.random() * colorScheme.length)];
-  }
+  radiusScale = d3
+    .scaleSqrt()
+    .domain([this.minSize, this.maxSize])
+    .range([this.scaleIt / this.radiusX, this.scaleIt / this.radiusY]);
+
+  simulation = d3
+    .forceSimulation()
+    .force("x", d3.forceX(this.width / this.forceX).strength(0.05))
+    .force("y", d3.forceY(this.height / this.forceY).strength(0.05))
+    .force(
+      "collide",
+      d3.forceCollide(d => {
+        return this.radiusScale(d.score) + 1;
+      })
+    )
+    .alphaDecay([0.001]);
 
   componentDidMount() {
-    const svg = d3.select("." + this.props.name);
-
-    svg
-      .append("g")
-      .attr("transform", `translate(${this.width / 2},${this.height / 2})`)
-      .selectAll("circle")
-      .data(this.props.values)
+    console.log("componentDidMount was called");
+    const svg = d3.select("#d3_display");
+    const group = svg
+      .selectAll("g")
+      .data(this.data)
       .enter()
-      .append("circle");
+      .append("g")
+      .attr("id", function(d) {
+        return d.word;
+      });
 
-    svg
-      .selectAll("circle")
-      .attr("cx", d => {
-        return Math.floor(Math.random() * this.width) - this.width / 2;
-      })
-      .attr("cy", d => {
-        return Math.floor(Math.random() * this.height) - this.height / 2;
-      })
-      .attr("r", d => {
-        return d * 10;
-      })
+    group
+      .append("circle")
+      .attr("cx", this.width / 2)
+      .attr("cy", this.height / 2)
+      .attr("r", 5)
       .attr("fill", d => {
-        return this.randomColor(d3.schemeSet1);
+        return d.color;
       });
-  }
 
-  componentDidUpdate() {
-    console.log("this.props.data", this.props.values);
-    const svg = d3
-      .select("." + this.props.name)
-      .selectAll("circle")
-      .data(this.props.values)
-      // .enter()
-      .transition()
-      .duration(1000)
-      .attr("r", d => {
-        return d * 10;
-      });
-    console.log("svg", svg);
+    const nodesCircles = d3.selectAll("circle");
+
+    const ticked = () => {
+      this.radius += 2;
+      this.fontSize += 1;
+      nodesCircles
+        .attr("cx", d => {
+          return d.x;
+        })
+        .attr("cy", d => {
+          return d.y;
+        })
+        .attr("r", d => {
+          if (this.radius >= this.radiusScale(d.score)) {
+            return this.radiusScale(d.score);
+          }
+          return this.radius;
+        });
+    };
+    this.simulation.nodes(this.data).on("tick", ticked);
   }
 
   render() {
-    return (
-      <svg
-        className={this.props.name}
-        width={this.width}
-        height={this.height}
-      />
-    );
+    console.log("d3js was called");
+    return <svg id="d3_display" />;
   }
 }
 
