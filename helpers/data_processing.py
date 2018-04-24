@@ -31,7 +31,6 @@ def process_article(corpus):
     final = words_freq[-15:]
     max_value=final[-1:][0][1]
     scoreFunc=sigmoid(max_value)
-    # result={}
     result = []
 
     for i in range(len(final)):
@@ -52,8 +51,6 @@ def process_article(corpus):
             obj['color']='green'
             obj['score']=obj['freq']
 
-        # key = "key"+ str(i)
-        # result[key] = obj
         result.append(obj)
 
     return json.dumps(result);
@@ -75,6 +72,5 @@ def main():
 
 
     print(process_article(output))
-#    print(os.path.dirname(os.path.realpath(__file__)))
 if __name__ == '__main__':
     main()

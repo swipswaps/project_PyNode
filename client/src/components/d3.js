@@ -5,38 +5,36 @@ class Circles extends Component {
   width = 0.6 * window.innerWidth;
   height = 0.8 * window.innerHeight;
   scaleIt = this.height;
-  radius = 4;
-  fontSize = 4;
-  t = d3.transition().duration(500);
+  t = d3.transition().duration(1000);
   forceX = 2;
   forceY = 2.5;
   radiusX = 30;
   radiusY = 10;
 
+  dragstarted = function(d) {
+    d3
+      .select(this)
+      .raise()
+      .classed("active", true);
+  };
+
+  dragged = function(d) {
+    d3
+      .select(this)
+      .attr("cx", (d.x = d3.event.x))
+      .attr("cy", (d.y = d3.event.y));
+  };
+
+  dragended = function(d) {
+    d3.select(this).classed("active", false);
+  };
+
   initialise() {
-    function dragstarted(d) {
-      let test = d3
-        .select(this)
-        .raise()
-        .classed("active", true);
-    }
-
-    function dragged(d) {
-      d3
-        .select(this)
-        .attr("cx", (d.x = d3.event.x))
-        .attr("cy", (d.y = d3.event.y));
-    }
-
-    function dragended(d) {
-      d3.select(this).classed("active", false);
-    }
-
     const drag = d3
       .drag()
-      .on("start", dragstarted)
-      .on("drag", dragged)
-      .on("end", dragended);
+      .on("start", this.dragstarted)
+      .on("drag", this.dragged)
+      .on("end", this.dragended);
 
     let data = JSON.parse(this.props.values).slice(0, 15);
     data = data.slice(0, 15);
@@ -66,7 +64,7 @@ class Circles extends Component {
 
     const svg = d3.select("#d3_display");
 
-    const delCircles = svg.selectAll("g").remove();
+    svg.selectAll("g").remove();
 
     const group = svg
       .selectAll("g")
@@ -87,23 +85,40 @@ class Circles extends Component {
         return d.color;
       });
 
+    group
+      .append("text")
+      .attr("text-anchor", d => {
+        return "middle";
+      })
+      .attr("x", d => {
+        return this.width / 2;
+      })
+      .attr("y", d => {
+        return this.height / 2;
+      })
+      .text(d => {
+        return d.word;
+      });
+
     const nodesCircles = d3.selectAll("circle");
+    const nodesTexts = d3.selectAll("text");
 
     const ticked = () => {
       radius += 2;
       fontSize += 1;
       nodesCircles
-        .attr("cx", d => {
-          return d.x;
-        })
-        .attr("cy", d => {
-          return d.y;
-        })
+        .attr("cx", d => d.x)
+        .attr("cy", d => d.y)
         .attr("r", d => {
-          if (radius >= radiusScale(d.score)) {
-            return radiusScale(d.score);
-          }
-          return radius;
+          return radius >= radiusScale(d.score) ? radiusScale(d.score) : radius;
+        });
+      nodesTexts
+        .attr("x", d => d.x)
+        .attr("y", d => d.y)
+        .attr("style", d => {
+          return fontSize >= radiusScale(d.score) / 2
+            ? `font-size: ${radiusScale(d.score) / 2}`
+            : `font-size: ${fontSize}px`;
         });
     };
     simulation.nodes(data).on("tick", ticked);
