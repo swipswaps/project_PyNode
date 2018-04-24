@@ -12,7 +12,6 @@ const dataReq = async (req, res, next) => {
     let json = await result.json();
     result = await pyReq("python3", json.response.content);
     res.send(JSON.stringify({ result: result }));
-    console.log("we can send this number back to front end now", result);
   } catch (err) {
     console.log("error", err);
   }

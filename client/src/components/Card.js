@@ -2,12 +2,7 @@ import React, { Component } from "react";
 import { MultipleArticles } from "./SingularArticle";
 import { guardianRequest } from "../utils/fetchGuard";
 import Circles from "./d3";
-import D3_container from "./d3_con";
 import { SearchBar } from "./SearchBar";
-
-const Tester = props => {
-  return <p className="d3_display">{props.articleText}</p>;
-};
 
 const Header = () => <h1> Guardian latest </h1>;
 
@@ -24,7 +19,6 @@ export class Card extends Component {
   }
 
   handleTextUpdate = text => {
-    console.log("i was called article text");
     this.setState({ articleText: text });
   };
 

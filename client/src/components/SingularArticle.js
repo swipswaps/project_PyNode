@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { sendData } from "../utils/fetchBackEnd";
-import D3_container from "./d3_con";
 
 const SingularArticle = ({ article: { webTitle, webUrl, id } }) => {
   return (
