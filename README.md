@@ -20,7 +20,7 @@ NTLK, etc.
 At the same time, Web Developpers' most popular programming language is
 Javascript and their stack includes NodeJS, Express, React, Angular, etc
 
-#Getting Started
+# Getting Started
 
 Currently, the project is not deployed online. However, it could be run locally.
 
