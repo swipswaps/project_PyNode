@@ -4,6 +4,7 @@ import sys, math, os, json, numpy as np
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import RegexpTokenizer
+
 def read_in():
     lines = sys.stdin.readline()
     lines = json.loads(lines)
@@ -26,10 +27,9 @@ def process_article(corpus):
 
     for i in range(len(words_set)):
         words_freq.append((words_set[i],words.count(words_set[i])))
-    words_freq.sort(key=lambda tup:tup[1])
+    final = sorted(words_freq, key=lambda tup:tup[1], reverse = True)
 
-    final = words_freq[-15:]
-    max_value=final[-1:][0][1]
+    max_value=final[0][1]
     scoreFunc=sigmoid(max_value)
     result = []
 
@@ -52,24 +52,22 @@ def process_article(corpus):
             obj['score']=obj['freq']
 
         result.append(obj)
+        result = sorted(result, key = lambda obj: obj['score'], reverse = True)
 
-    return json.dumps(result);
+    return json.dumps(result[:15]);
 
 def sigmoid(max):
     c=1
     def calc(x):
         return((max/(1+math.exp(-x*c))-max/2)*2)
     return calc
+
 def main():
     lines = read_in()
     #without encode('utf-8')
     #python throws error UnicodeEncodeError
     #'ascii codec can't encode character ...
     output = lines[u'bodyText']
-
-    #add text processing code here and printout results
-
-
 
     print(process_article(output))
 if __name__ == '__main__':

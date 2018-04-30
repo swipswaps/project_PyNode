@@ -2,7 +2,7 @@ import { GUARDIAN_KEY } from "../token";
 
 const guardian_path = "http://content.guardianapis.com/search?";
 const guardian_key =
-  "&order-by=newest&show-fields=bodyText,trailText&api-key=" + GUARDIAN_KEY;
+  "&order-by=relevance&show-fields=bodyText,trailText&api-key=" + GUARDIAN_KEY;
 
 export const guardianRequest = async search => {
   const path = search
