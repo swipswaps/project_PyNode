@@ -6,6 +6,8 @@ class Circles extends Component {
   height = 0.8 * window.innerHeight;
   scaleIt = this.height;
   t = d3.transition().duration(1000);
+  precision = d3.precisionFixed(0.1);
+  format = d3.format("." + this.precision + "f");
   forceX = 2;
   forceY = 2.5;
   radiusX = 30;
@@ -87,18 +89,15 @@ class Circles extends Component {
 
     group
       .append("text")
-      .attr("text-anchor", d => {
-        return "middle";
-      })
-      .attr("x", d => {
-        return this.width / 2;
-      })
-      .attr("y", d => {
-        return this.height / 2;
-      })
-      .text(d => {
-        return d.word;
-      });
+      .attr("text-anchor", "middle")
+      .text(d => `${d.word}`);
+
+    group
+      .append("text")
+      .attr("text-anchor", "middle")
+      .attr("dy", d => 0.7 * radiusScale(d.score))
+      .text(d => ` ${this.format(d.score)}`)
+      .attr("fill", "white");
 
     const nodesCircles = d3.selectAll("circle");
     const nodesTexts = d3.selectAll("text");
