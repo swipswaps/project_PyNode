@@ -7,22 +7,44 @@ React and D3js.
 
 # Motivation
 
-During my two years working as a datascientist in London, I visited various
-professional Meet-Ups, where I have come across two communities: datascientists
+During my two years working as a datas cientist in London, I visited various
+professional Meet-Ups, where I have come across two communities: data scientists
 and web-developers. It was rather striking, how these two groups keep
 separately. At large, I think it was due to the fact, that the technologies each
 group uses do not overlap.
 
-The DataScientists community, on the most basic level, often works and develop
+The data scientists community, on the most basic level, often works and develop
 their models in Python using highly popular libraries like scikit-learn, pandas,
 NTLK, etc.
 
-At the same time, Web Developpers' most popular programming language is
+At the same time, web developers' most popular programming language is
 Javascript and their stack includes NodeJS, Express, React, Angular, etc
 
-# Stages
+# Project description with a little more details
 
-* Stage 1 The Python code will be invoked as a child process on the backend
+The search bar on the screen allows you to search the Guardian articles (using
+Guardian Api). The top-10 most relevant articles are displayed on the left hand
+side. By pressing the "press me" button, backend receives the article id and
+requests its text, process it in Python and sends back to frontend the results,
+which are displayed in the form of bubbles on the screen (using D3js library).
+
+# Screenshots
+
+### From prototype to website
+
+<img src="https://downloader.disk.yandex.ru/preview/fcfefb83d0e302cd4dd5cf292f22689a97fbb6ca8199b5ce03c395c9adc6388e/5ae73597/0acWjf_Znov2i6P-XTV3TGXvE7Z008TNsSS6mxtYEE7KnoxA5IHrcgG-BpC3drJZHBBDoLn4hnNEWD1YQWQbmg%3D%3D?uid=0&filename=JupyterNotebook.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&tknv=v2&size=2048x2048" width="300" />
+
+<img src="https://downloader.disk.yandex.ru/preview/196ea980a957e8af0f5221a3bca0a7756a6aa7e717f5719857d6174ed9966d19/5ae7330e/0acWjf_Znov2i6P-XTV3TC8To2DcxatHLlaqO62dwi2XKStVeBfSuj0AkO7Sd9fFjlusxDFjUzGwg5ALC-zk9w%3D%3D?uid=0&filename=chromeDisplay.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&tknv=v2&size=2048x2048" width="300"/>
+
+# Tech/framework used
+
+#### Built with:
+
+* Express
+* React
+* D3js
+* NodeJS
+* JupyterNotebook
 
 # Getting Started
 
@@ -65,3 +87,7 @@ Finally, in the terminal run the following command:
 ```shell
 pavel@pavel~/server$npm run dev
 ```
+
+# Stages
+
+* Stage 1 The Python code will be invoked as a child process on the backend
