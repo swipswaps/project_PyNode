@@ -20,7 +20,11 @@ NTLK, etc.
 At the same time, Web Developpers' most popular programming language is
 Javascript and their stack includes NodeJS, Express, React, Angular, etc
 
-#Getting Started
+# Stages
+
+* Stage 1 The Python code will be invoked as a child process on the backend
+
+# Getting Started
 
 Currently, the project is not deployed online. However, it could be run locally.
 
@@ -38,7 +42,7 @@ server
 |   config.env
 ```
 
-inside that file: GUARDIAN\*KEY=_insert dec key here_
+inside that file: `GUARDIAN_KEY=insert_dev_key_here`
 
 2. Add token.js file inside server -> client -> src folder:
 
@@ -54,10 +58,10 @@ server
 
 with the following
 
-_export const GUARDIAN_KEY = "insert dev key here"_
+`export const GUARDIAN_KEY = "insert_dev_key here"`
 
 Finally, in the terminal run the following command:
 
-```shall
-pavel@pavel~/server/npm run dev
+```shell
+pavel@pavel~/server$npm run dev
 ```
