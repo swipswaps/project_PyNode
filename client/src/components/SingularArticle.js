@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { sendData } from "../utils/fetchBackEnd";
+import { connect } from "react-redux";
+import { fetchGuardian } from "../actions/guardianFetchAction";
 
 const SingularArticle = ({ article: { webTitle, webUrl, id } }) => {
   return (
@@ -9,12 +11,13 @@ const SingularArticle = ({ article: { webTitle, webUrl, id } }) => {
   );
 };
 
-export class MultipleArticles extends Component {
+class MultipleArticles extends Component {
   state = {
     articleText: ""
   };
 
   changeData = index => {
+    console.log("index", index);
     sendData("/react", { articleID: this.props.articles[index].id }).then(
       data => {
         this.props.onTextUpdate(data.result);
@@ -22,7 +25,12 @@ export class MultipleArticles extends Component {
     );
   };
 
+  componentWillMount() {
+    this.props.fetchGuardian();
+  }
+
   render() {
+    console.log("this.props", this.props.articles);
     return (
       <div className="titlesCon">
         {this.props.articles.map((art, i) => {
@@ -39,3 +47,9 @@ export class MultipleArticles extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  articles: state.articles.articles
+});
+
+export default connect(mapStateToProps, { fetchGuardian })(MultipleArticles);
