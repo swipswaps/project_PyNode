@@ -27,7 +27,6 @@ export class Card extends Component {
   };
 
   render() {
-    console.log("card js was called");
     if (!this.state.articles) {
       return <h3>it takes too long</h3>;
     }

@@ -123,6 +123,10 @@ class Circles extends Component {
     simulation.nodes(data).on("tick", ticked);
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.values !== this.props.values ? true : false;
+  }
+
   componentDidMount() {
     this.initialise();
   }

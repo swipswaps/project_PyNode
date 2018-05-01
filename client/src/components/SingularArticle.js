@@ -17,14 +17,12 @@ export class MultipleArticles extends Component {
   changeData = index => {
     sendData("/react", { articleID: this.props.articles[index].id }).then(
       data => {
-        console.log("data", data);
         this.props.onTextUpdate(data.result);
       }
     );
   };
 
   render() {
-    console.log("this.props.arrayArticles", this.props.arrayArticles);
     return (
       <div className="titlesCon">
         {this.props.articles.map((art, i) => {
