@@ -1,6 +1,5 @@
 export const sendData = async (url, data) => {
-  console.log("url", url);
-  console.log("data", data);
+  console.log("i have been called");
   const response = await fetch(url, {
     body: JSON.stringify(data),
     headers: new Headers({

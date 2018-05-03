@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { guardianRequest } from "../utils/fetchGuard";
 import { connect } from "react-redux";
 import { fetchGuardian } from "../actions/guardianFetchAction";
 
