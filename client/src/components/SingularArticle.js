@@ -17,7 +17,6 @@ class MultipleArticles extends Component {
   };
 
   changeData = index => {
-    console.log("index", index);
     sendData("/react", { articleID: this.props.articles[index].id }).then(
       data => {
         this.props.onTextUpdate(data.result);
@@ -30,7 +29,6 @@ class MultipleArticles extends Component {
   }
 
   render() {
-    console.log("this.props", this.props.articles);
     return (
       <div className="titlesCon">
         {this.props.articles.map((art, i) => {
@@ -49,7 +47,7 @@ class MultipleArticles extends Component {
 }
 
 const mapStateToProps = state => ({
-  articles: state.articles.articles
+  articles: state.articles.articles //first articles is from root reducer and second from guard reducer
 });
 
 export default connect(mapStateToProps, { fetchGuardian })(MultipleArticles);

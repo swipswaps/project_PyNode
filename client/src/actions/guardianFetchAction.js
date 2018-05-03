@@ -1,10 +1,9 @@
 import { FETCH_GUARDIAN } from "./types";
 import { guardianRequest } from "../utils/fetchGuard";
 
-export function fetchGuardian() {
+export function fetchGuardian(search) {
   return function(dispatch) {
-    console.log("fetching");
-    guardianRequest().then(articles =>
+    guardianRequest(search).then(articles =>
       dispatch({
         type: FETCH_GUARDIAN,
         payload: articles.response.results

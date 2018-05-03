@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { guardianRequest } from "../utils/fetchGuard";
+import { connect } from "react-redux";
+import { fetchGuardian } from "../actions/guardianFetchAction";
 
-export class SearchBar extends Component {
+class SearchBar extends Component {
   state = {
-    search: "",
-    arrayArticles: ""
+    search: ""
   };
 
   handleChange = event => {
@@ -13,9 +14,7 @@ export class SearchBar extends Component {
 
   searchRequest = event => {
     event.preventDefault();
-    guardianRequest(this.state.search).then(data => {
-      this.props.onSearch(data.response.results);
-    });
+    this.props.fetchGuardian(this.state.search);
   };
 
   render() {
@@ -32,3 +31,9 @@ export class SearchBar extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  articles: state.articles.articles
+});
+
+export default connect(mapStateToProps, { fetchGuardian })(SearchBar);

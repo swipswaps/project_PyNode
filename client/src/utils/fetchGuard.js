@@ -5,6 +5,7 @@ const guardian_key =
   "&order-by=relevance&show-fields=bodyText,trailText&api-key=" + GUARDIAN_KEY;
 
 export const guardianRequest = async search => {
+  console.log("search", search);
   const path = search
     ? guardian_path + "q=" + search + guardian_key
     : guardian_path + guardian_key;

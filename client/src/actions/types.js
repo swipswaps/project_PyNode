@@ -1,2 +1,1 @@
 export const FETCH_GUARDIAN = "FETCH_GUARDIAN";
-export const FETCH_BACKEND = "FETCH_BACKEND";

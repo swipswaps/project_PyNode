@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import MultipleArticles from "./components/SingularArticle";
 import { guardianRequest } from "./utils/fetchGuard";
 import Circles from "./components/d3";
-import { SearchBar } from "./components/SearchBar";
+import SearchBar from "./components/SearchBar";
 import store from "./store";
 import { Provider } from "react-redux";
 
@@ -41,7 +41,6 @@ export class App extends Component {
           </div>
           <div className="pageCon">
             <MultipleArticles
-              articles={this.state.articles}
               onTextUpdate={this.handleTextUpdate}
               className="sidebar"
             />

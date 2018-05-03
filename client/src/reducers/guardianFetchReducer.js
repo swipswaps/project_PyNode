@@ -1,14 +1,12 @@
-import { FETCH_GUARDIAN, FETCH_BACKEND } from "../actions/types";
+import { FETCH_GUARDIAN } from "../actions/types";
 
 const initialState = {
-  articles: [],
-  article: {}
+  articles: []
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case FETCH_GUARDIAN:
-      console.log("reducer");
       return {
         ...state,
         articles: action.payload
