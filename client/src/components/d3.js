@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import * as d3 from "d3";
 
 class Circles extends Component {
@@ -123,21 +124,16 @@ class Circles extends Component {
     simulation.nodes(data).on("tick", ticked);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.values !== this.props.values ? true : false;
-  }
-
-  componentDidMount() {
-    this.initialise();
-  }
-
-  componentDidUpdate() {
-    this.initialise();
-  }
-
   render() {
+    if (Object.keys(this.props.values).length !== 0) {
+      this.initialise();
+    }
     return <svg id="d3_display" />;
   }
 }
 
-export default Circles;
+const mapStateToProps = state => ({
+  values: state.processedData.processedData
+});
+
+export default connect(mapStateToProps)(Circles);

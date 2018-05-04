@@ -1,12 +1,36 @@
 import React, { Component } from "react";
-import { Card } from "./components/Card";
+import { Provider } from "react-redux";
+import store from "./store";
+import MultipleArticles from "./components/MultipleArticles";
+import Circles from "./components/d3";
+import SearchBar from "./components/SearchBar";
 
-class App extends Component {
+export class App extends Component {
+  state = {
+    articleText: ""
+  };
+
+  handleTextUpdate = text => {
+    this.setState({ articleText: text });
+  };
+
   render() {
     return (
-      <div className="root">
-        <Card />
-      </div>
+      <Provider store={store}>
+        <div className="root">
+          <div className="header">
+            <h1> Guardian latest </h1>
+            <SearchBar onSearch={this.handleArrArticlesUpdate} />
+          </div>
+          <div className="pageCon">
+            <MultipleArticles
+              onTextUpdate={this.handleTextUpdate}
+              className="sidebar"
+            />
+            <Circles />
+          </div>
+        </div>
+      </Provider>
     );
   }
 }

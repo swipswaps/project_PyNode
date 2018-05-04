@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { sendData } from "../utils/fetchBackEnd";
+import { connect } from "react-redux";
+import { fetchGuardian } from "../actions/guardianFetchAction";
+import { fetchProcessedData } from "../actions/fetchProcessedDataAction";
 
 const SingularArticle = ({ article: { webTitle, webUrl, id } }) => {
   return (
@@ -9,18 +11,19 @@ const SingularArticle = ({ article: { webTitle, webUrl, id } }) => {
   );
 };
 
-export class MultipleArticles extends Component {
+class MultipleArticles extends Component {
   state = {
     articleText: ""
   };
 
   changeData = index => {
-    sendData("/react", { articleID: this.props.articles[index].id }).then(
-      data => {
-        this.props.onTextUpdate(data.result);
-      }
-    );
+    let articleId = this.props.articles[index].id;
+    this.props.fetchProcessedData(articleId);
   };
+
+  componentWillMount() {
+    this.props.fetchGuardian();
+  }
 
   render() {
     return (
@@ -30,7 +33,7 @@ export class MultipleArticles extends Component {
             <div key={i} className="sidebarItem">
               <SingularArticle article={art} />
               <button onClick={() => this.changeData(i)} article={art}>
-                pressMe
+                analise
               </button>
             </div>
           );
@@ -39,3 +42,12 @@ export class MultipleArticles extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  articles: state.articles.articles,
+  prrocessedData: state.processedData.processedData
+});
+
+export default connect(mapStateToProps, { fetchGuardian, fetchProcessedData })(
+  MultipleArticles
+);
