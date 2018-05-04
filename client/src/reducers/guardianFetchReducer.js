@@ -1,7 +1,8 @@
-import { FETCH_GUARDIAN } from "../actions/types";
+import { FETCH_GUARDIAN, FETCH_PROCESSED_DATA } from "../actions/types";
 
 const initialState = {
-  articles: []
+  articles: [],
+  processedData: {}
 };
 
 export default function(state = initialState, action) {
@@ -11,6 +12,12 @@ export default function(state = initialState, action) {
         ...state,
         articles: action.payload
       };
+    case FETCH_PROCESSED_DATA:
+      return {
+        ...state,
+        processedData: action.payload
+      };
+
     default:
       return state;
   }
