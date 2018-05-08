@@ -4,6 +4,7 @@ import store from "./store";
 import MultipleArticles from "./components/MultipleArticles";
 import Circles from "./components/d3";
 import SearchBar from "./components/SearchBar";
+import Title from "./components/Title";
 
 export class App extends Component {
   state = {
@@ -27,7 +28,11 @@ export class App extends Component {
               onTextUpdate={this.handleTextUpdate}
               className="sidebar"
             />
-            <Circles />
+            <div className="flex-container">
+              <Title className="title" />
+              <hr />
+              <Circles />
+            </div>
           </div>
         </div>
       </Provider>

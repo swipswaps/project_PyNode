@@ -10,8 +10,19 @@ const dataReq = async (req, res, next) => {
     const g_url = guardian_path + articleID + guardian_key;
     let result = await fetch(g_url);
     let json = await result.json();
-    result = await pyReq("python3", json.response.content);
-    res.send(JSON.stringify({ result: result }));
+    let guardianResponse = json.response.content;
+    result = await pyReq("python3", guardianResponse);
+    console.log("result from Python", result);
+    res.send(
+      JSON.stringify({
+        type: "BACKEND-OUTPUT",
+        payload: {
+          sectionName: guardianResponse.sectionName,
+          webPublicationDate: guardianResponse.webPublicationDate,
+          result
+        }
+      })
+    );
   } catch (err) {
     console.log("error", err);
   }

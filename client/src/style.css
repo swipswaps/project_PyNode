@@ -9,6 +9,12 @@
   width: 95vw;
 }
 
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+
 .titlesCon {
   display: flex;
   flex-direction: column;
@@ -18,16 +24,21 @@
   background-color: #def2f1;
 }
 
+.header h2 {
+  width: 60vw;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 #root {
   display: flex;
   justify-content: row;
 }
 
-/*.sidebar {
-  height: 100vh;
-  overflow: auto;
-  background: "#eee";
-}*/
+.searchBar {
+  align-self: flex-start;
+  width: 30wv;
+}
 
 .sidebarItem {
   overflow-wrap: break-word;

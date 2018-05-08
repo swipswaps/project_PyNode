@@ -54,7 +54,8 @@ def process_article(corpus):
         result.append(obj)
         result = sorted(result, key = lambda obj: obj['score'], reverse = True)
 
-    return json.dumps(result[:15]);
+    result = { "type": "PYTHON_OUTPUT", "payload": {"result" : result[:15], "wordCount" : len(token)}}
+    return json.dumps(result);
 
 def sigmoid(max):
     c=1
@@ -70,5 +71,6 @@ def main():
     output = lines[u'bodyText']
 
     print(process_article(output))
+
 if __name__ == '__main__':
     main()
