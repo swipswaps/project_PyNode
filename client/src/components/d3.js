@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { insertTitle } from "../d3Utils/GraphTitle";
 import * as d3 from "d3";
 
 class Circles extends Component {
@@ -39,8 +40,7 @@ class Circles extends Component {
       .on("drag", this.dragged)
       .on("end", this.dragended);
 
-    let data = JSON.parse(this.props.values).slice(0, 15);
-    data = data.slice(0, 15);
+    let data = this.props.values.result;
 
     let radius = 4,
       fontSize = 4;
@@ -67,6 +67,8 @@ class Circles extends Component {
 
     const svg = d3.select("#d3_display");
 
+    insertTitle();
+
     svg.selectAll("g").remove();
 
     const group = svg
@@ -81,8 +83,6 @@ class Circles extends Component {
 
     group
       .append("circle")
-      .attr("cx", this.width / 2)
-      .attr("cy", this.height / 2)
       .attr("r", 5)
       .attr("fill", d => {
         return d.color;
@@ -90,18 +90,20 @@ class Circles extends Component {
 
     group
       .append("text")
+      .classed("word", true)
       .attr("text-anchor", "middle")
       .text(d => `${d.word}`);
 
     group
       .append("text")
+      .classed("score", true)
       .attr("text-anchor", "middle")
       .attr("dy", d => 0.7 * radiusScale(d.score))
       .text(d => ` ${this.format(d.score)}`)
       .attr("fill", "white");
 
     const nodesCircles = d3.selectAll("circle");
-    const nodesTexts = d3.selectAll("text");
+    const nodesTexts = d3.selectAll(".word, .score");
 
     const ticked = () => {
       radius += 2;
@@ -125,6 +127,7 @@ class Circles extends Component {
   }
 
   render() {
+    console.log("this.props", !this.props.values);
     if (Object.keys(this.props.values).length !== 0) {
       this.initialise();
     }
@@ -132,8 +135,10 @@ class Circles extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  values: state.processedData.processedData
-});
+const mapStateToProps = state => {
+  return {
+    values: state.processedData.processedData
+  };
+};
 
 export default connect(mapStateToProps)(Circles);

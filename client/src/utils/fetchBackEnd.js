@@ -7,5 +7,5 @@ export const sendData = async (url, data) => {
     method: "POST"
   });
   const json = await response.json();
-  return json;
+  return json.payload;
 };

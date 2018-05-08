@@ -3,5 +3,6 @@ import guardianFetchReducer from "./guardianFetchReducer";
 
 export default combineReducers({
   articles: guardianFetchReducer,
-  processedData: guardianFetchReducer
+  processedData: guardianFetchReducer,
+  title: guardianFetchReducer
 });

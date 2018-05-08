@@ -18,15 +18,17 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form>
-        <input
-          id="textInput"
-          className="searchBar"
-          value={this.state.search}
-          onChange={this.handleChange}
-        />
-        <button onClick={this.searchRequest}>search</button>
-      </form>
+      <div className="searchBar">
+        <form>
+          <input
+            id="textInput"
+            className="searchBar"
+            value={this.state.search}
+            onChange={this.handleChange}
+          />
+          <button onClick={this.searchRequest}>search</button>
+        </form>
+      </div>
     );
   }
 }

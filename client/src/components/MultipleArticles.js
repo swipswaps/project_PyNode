@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchGuardian } from "../actions/guardianFetchAction";
 import { fetchProcessedData } from "../actions/fetchProcessedDataAction";
+import { displayTitle } from "../actions/articleTtitleAction";
 
 const SingularArticle = ({ article: { webTitle, webUrl, id } }) => {
   return (
@@ -16,9 +17,11 @@ class MultipleArticles extends Component {
     articleText: ""
   };
 
-  changeData = index => {
+  displayViz = index => {
+    let title = this.props.articles[index].webTitle;
     let articleId = this.props.articles[index].id;
     this.props.fetchProcessedData(articleId);
+    this.props.displayTitle(title);
   };
 
   componentWillMount() {
@@ -32,7 +35,7 @@ class MultipleArticles extends Component {
           return (
             <div key={i} className="sidebarItem">
               <SingularArticle article={art} />
-              <button onClick={() => this.changeData(i)} article={art}>
+              <button onClick={() => this.displayViz(i)} article={art}>
                 analise
               </button>
             </div>
@@ -48,6 +51,8 @@ const mapStateToProps = state => ({
   prrocessedData: state.processedData.processedData
 });
 
-export default connect(mapStateToProps, { fetchGuardian, fetchProcessedData })(
-  MultipleArticles
-);
+export default connect(mapStateToProps, {
+  fetchGuardian,
+  fetchProcessedData,
+  displayTitle
+})(MultipleArticles);
