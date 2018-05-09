@@ -43,6 +43,23 @@ class Circles extends Component {
 
     let data = this.props.values.result;
 
+    let scoreRange = data.map(el => {
+      return el.sentiment === "negative"
+        ? -1 * el.score
+        : el.sentiment === "positive" ? el.score : 0;
+    });
+
+    console.log("before sort", scoreRange);
+    scoreRange.sort((a, b) => {
+      return a - b;
+    });
+    console.log("after sort", scoreRange);
+
+    //trying colours
+    let color = d3
+      .scaleSequential(d3.interpolateRdBu)
+      .domain([1.5 * scoreRange[0], 1.2 * scoreRange[scoreRange.length - 1]]);
+
     let radius = 4,
       fontSize = 4;
 
@@ -84,7 +101,9 @@ class Circles extends Component {
       .append("circle")
       .attr("r", 5)
       .attr("fill", d => {
-        return d.color;
+        return d.sentiment === "negative"
+          ? color(-1 * d.score)
+          : d.sentiment === "positive" ? color(d.score) : "lightgreen";
       });
 
     group
@@ -95,7 +114,7 @@ class Circles extends Component {
 
     group
       .append("text")
-      .classed("score", true)
+      .attr("class", "score")
       .attr("text-anchor", "middle")
       .attr("dy", d => 0.7 * radiusScale(d.score))
       .text(d => ` ${this.format(d.score)}`)
@@ -106,6 +125,16 @@ class Circles extends Component {
 
     const nodesCircles = d3.selectAll("circle");
     const nodesTexts = d3.selectAll(".word, .score");
+
+    //trying axis
+    console.log("min and max", minSize, maxSize);
+    const x = d3
+      .scaleLinear()
+      .domain([-minSize, maxSize])
+      .range([-10, 10]);
+
+    const axis = svg.append("g").attr("class", axis);
+    //axis.call(d3.axisRight(x));
 
     const ticked = () => {
       radius += 2;

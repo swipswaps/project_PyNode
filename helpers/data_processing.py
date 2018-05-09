@@ -38,7 +38,7 @@ def process_article(corpus):
         obj['word']=final[i][0]
         obj['freq']=final[i][1]
         if final[i][0] in postive:
-            obj['sentiment']='postive'
+            obj['sentiment']='positive'
             obj['color']='blue'
             obj['score']=scoreFunc(obj['freq'])
         elif final[i][0] in negative:

@@ -7,7 +7,7 @@ export const infoBox = (width, height, info) => {
     .select("svg")
     .append("g")
     .attr("transform", `translate(${0.01 * width}, ${0.15 * height})`)
-    .classed("infoBox", true);
+    .attr("class", "infoBox");
 
   let publData = svg
     .append("text")
