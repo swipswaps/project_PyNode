@@ -1,13 +1,14 @@
 import * as d3 from "d3";
 
-export const insertTitle = () => {
+export const insertTitle = (width, height) => {
   let svg = d3.select("svg");
   svg
     .append("text")
     .text("The most influencial words in the article")
-    //.attr("anchor-text", "middle")
     .attr("fill", "black")
-    .attr("x", "20px")
-    .attr("y", "20px")
-    .style("font-size", "1.5rem");
+    .attr("x", width / 2)
+    .attr("y", 0.05 * height)
+    .attr("text-anchor", "middle")
+    .style("font-size", "1.5rem")
+    .style("font-family", "ubuntu");
 };

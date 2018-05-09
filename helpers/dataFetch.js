@@ -12,7 +12,6 @@ const dataReq = async (req, res, next) => {
     let json = await result.json();
     let guardianResponse = json.response.content;
     result = await pyReq("python3", guardianResponse);
-    console.log("result from Python", result);
     res.send(
       JSON.stringify({
         type: "BACKEND-OUTPUT",

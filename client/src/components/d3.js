@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { insertTitle } from "../d3Utils/GraphTitle";
 import * as d3 from "d3";
+import { infoBox } from "../d3Utils/infoBox";
 
 class Circles extends Component {
   width = 0.6 * window.innerWidth;
@@ -67,8 +68,6 @@ class Circles extends Component {
 
     const svg = d3.select("#d3_display");
 
-    insertTitle();
-
     svg.selectAll("g").remove();
 
     const group = svg
@@ -102,6 +101,9 @@ class Circles extends Component {
       .text(d => ` ${this.format(d.score)}`)
       .attr("fill", "white");
 
+    insertTitle(this.width, this.height);
+    infoBox(this.width, this.height, this.props.values);
+
     const nodesCircles = d3.selectAll("circle");
     const nodesTexts = d3.selectAll(".word, .score");
 
@@ -127,7 +129,7 @@ class Circles extends Component {
   }
 
   render() {
-    console.log("this.props", !this.props.values);
+    console.log("this.props", this.props.values);
     if (Object.keys(this.props.values).length !== 0) {
       this.initialise();
     }
