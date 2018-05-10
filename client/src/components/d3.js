@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { insertTitle } from "../d3Utils/GraphTitle";
 import * as d3 from "d3";
 import { infoBox } from "../d3Utils/infoBox";
+import { createLegendPoints } from "../d3Utils/chartLegend";
 
 class Circles extends Component {
   width = 0.6 * window.innerWidth;
@@ -41,30 +42,30 @@ class Circles extends Component {
       .on("drag", this.dragged)
       .on("end", this.dragended);
 
+    let radius = 4,
+      fontSize = 4;
+
     let data = this.props.values.result;
 
+    let minSize = data[data.length - 1].score;
+    let maxSize = data[0].score;
+
+    //trying colours
     let scoreRange = data.map(el => {
       return el.sentiment === "negative"
         ? -1 * el.score
         : el.sentiment === "positive" ? el.score : 0;
     });
 
-    console.log("before sort", scoreRange);
     scoreRange.sort((a, b) => {
       return a - b;
     });
-    console.log("after sort", scoreRange);
 
-    //trying colours
     let color = d3
-      .scaleSequential(d3.interpolateRdBu)
-      .domain([1.5 * scoreRange[0], 1.2 * scoreRange[scoreRange.length - 1]]);
+      .scaleSequential(d3.interpolateRdYlGn)
+      .domain([-maxSize, maxSize]);
 
-    let radius = 4,
-      fontSize = 4;
-
-    let minSize = data[data.length - 1].score;
-    let maxSize = data[0].score;
+    //-----------------------------------------------------------------------
 
     let radiusScale = d3
       .scaleSqrt()
@@ -101,9 +102,10 @@ class Circles extends Component {
       .append("circle")
       .attr("r", 5)
       .attr("fill", d => {
+        console.log("color", color(d.score));
         return d.sentiment === "negative"
           ? color(-1 * d.score)
-          : d.sentiment === "positive" ? color(d.score) : "lightgreen";
+          : d.sentiment === "positive" ? color(d.score) : "lightblue";
       });
 
     group
@@ -128,13 +130,38 @@ class Circles extends Component {
 
     //trying axis
     console.log("min and max", minSize, maxSize);
-    const x = d3
-      .scaleLinear()
-      .domain([-minSize, maxSize])
-      .range([-10, 10]);
 
-    const axis = svg.append("g").attr("class", axis);
-    //axis.call(d3.axisRight(x));
+    const x = d3.scaleLinear().domain([-maxSize, maxSize]);
+
+    const axis = svg
+      .append("g")
+      .attr("class", axis)
+      .attr(
+        "transform",
+        `translate(${0.9 * this.width}, ${0.1 * this.height})`
+      );
+
+    let gridData = createLegendPoints(-maxSize, maxSize, 9, color);
+
+    axis.selectAll("rect").remove();
+
+    axis
+      .selectAll("rect")
+      .data(gridData)
+      .enter()
+      .append("rect")
+      .attr("height", 0.05 * this.height)
+      .attr("y", d => 0.05 * this.height * (d.id + 1))
+      .attr("width", 0.05 * this.height)
+      .attr("fill", d => d.color);
+
+    axis.call(
+      d3
+        .axisRight(x)
+        .ticks(10)
+        .tickSize(13)
+        .tickValues(color.domain())
+    );
 
     const ticked = () => {
       radius += 2;
