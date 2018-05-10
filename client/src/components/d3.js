@@ -131,14 +131,17 @@ class Circles extends Component {
     //trying axis
     console.log("min and max", minSize, maxSize);
 
-    const x = d3.scaleLinear().domain([-maxSize, maxSize]);
+    const x = d3
+      .scaleLinear()
+      .domain([-maxSize, maxSize])
+      .rangeRound([0.5 * this.height, 0.05 * this.height]);
 
     const axis = svg
       .append("g")
-      .attr("class", axis)
+      .classed("legend", true)
       .attr(
         "transform",
-        `translate(${0.9 * this.width}, ${0.1 * this.height})`
+        `translate(${0.9 * this.width}, ${0.15 * this.height})`
       );
 
     let gridData = createLegendPoints(-maxSize, maxSize, 9, color);
@@ -155,13 +158,16 @@ class Circles extends Component {
       .attr("width", 0.05 * this.height)
       .attr("fill", d => d.color);
 
-    axis.call(
-      d3
-        .axisRight(x)
-        .ticks(10)
-        .tickSize(13)
-        .tickValues(color.domain())
-    );
+    axis
+      .call(
+        d3
+          .axisRight(x)
+          .ticks(1)
+          .tickValues([-maxSize, 0, maxSize])
+          .tickSize(0.05 * this.height + 2)
+      )
+      .select(".domain")
+      .remove();
 
     const ticked = () => {
       radius += 2;
