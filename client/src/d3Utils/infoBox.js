@@ -6,7 +6,7 @@ export const infoBox = (width, height, info) => {
   let svg = d3
     .select("svg")
     .append("g")
-    .attr("transform", `translate(${0.01 * width}, ${0.15 * height})`)
+    .attr("transform", `translate(${0.01 * width}, ${0.1 * height})`)
     .attr("class", "infoBox");
 
   let publData = svg
