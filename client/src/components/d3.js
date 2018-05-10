@@ -13,7 +13,7 @@ class Circles extends Component {
   precision = d3.precisionFixed(0.1);
   format = d3.format("." + this.precision + "f");
   forceX = 2;
-  forceY = 2.5;
+  forceY = 2;
   radiusX = 30;
   radiusY = 10;
 
@@ -51,15 +51,6 @@ class Circles extends Component {
     let maxSize = data[0].score;
 
     //trying colours
-    let scoreRange = data.map(el => {
-      return el.sentiment === "negative"
-        ? -1 * el.score
-        : el.sentiment === "positive" ? el.score : 0;
-    });
-
-    scoreRange.sort((a, b) => {
-      return a - b;
-    });
 
     let color = d3
       .scaleSequential(d3.interpolateRdYlGn)
@@ -102,7 +93,6 @@ class Circles extends Component {
       .append("circle")
       .attr("r", 5)
       .attr("fill", d => {
-        console.log("color", color(d.score));
         return d.sentiment === "negative"
           ? color(-1 * d.score)
           : d.sentiment === "positive" ? color(d.score) : "lightblue";
@@ -128,9 +118,7 @@ class Circles extends Component {
     const nodesCircles = d3.selectAll("circle");
     const nodesTexts = d3.selectAll(".word, .score");
 
-    //trying axis
-    console.log("min and max", minSize, maxSize);
-
+    //trying axis -----------------------------
     const x = d3
       .scaleLinear()
       .domain([-maxSize, maxSize])
@@ -139,14 +127,15 @@ class Circles extends Component {
     const axis = svg
       .append("g")
       .classed("legend", true)
+      .style("font", "1rem ubuntu")
       .attr(
         "transform",
-        `translate(${0.9 * this.width}, ${0.15 * this.height})`
+        `translate(${0.95 * this.width}, ${0.2 * this.height})`
       );
 
     let gridData = createLegendPoints(-maxSize, maxSize, 9, color);
 
-    axis.selectAll("rect").remove();
+    //axis.selectAll("rect").remove();
 
     axis
       .selectAll("rect")
@@ -157,6 +146,38 @@ class Circles extends Component {
       .attr("y", d => 0.05 * this.height * (d.id + 1))
       .attr("width", 0.05 * this.height)
       .attr("fill", d => d.color);
+
+    axis
+      .append("text")
+      .text("word sentiment")
+      .attr("text-anchor", "middle")
+      .attr("alignment-baseline", "hanging")
+      .attr("fill", "black")
+      .style("font-weight", "bold");
+
+    axis
+      .append("text")
+      .text("positive")
+      .attr("alignment-baseline", "middle")
+      .attr("x", "-4rem")
+      .attr("y", 0.05 * this.height)
+      .attr("fill", "black");
+
+    axis
+      .append("text")
+      .text("negative")
+      .attr("alignment-baseline", "middle")
+      .attr("x", "-4rem")
+      .attr("y", 10 * 0.05 * this.height)
+      .attr("fill", "black");
+
+    axis
+      .append("text")
+      .text("neutral")
+      .attr("alignment-baseline", "middle")
+      .attr("x", "-4rem")
+      .attr("y", 5.5 * 0.05 * this.height)
+      .attr("fill", "black");
 
     axis
       .call(
@@ -191,7 +212,6 @@ class Circles extends Component {
   }
 
   render() {
-    console.log("this.props", this.props.values);
     if (Object.keys(this.props.values).length !== 0) {
       this.initialise();
     }

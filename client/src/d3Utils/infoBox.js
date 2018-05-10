@@ -1,18 +1,20 @@
 import * as d3 from "d3";
 
 export const infoBox = (width, height, info) => {
-  const boxHeight = 0.4 * height;
+  let publicationDate = info.webPublicationDate.replace(/T.*/g, "");
+  let publicationTime = info.webPublicationDate.replace(/\*T/g, "");
 
   let svg = d3
     .select("svg")
     .append("g")
-    .attr("transform", `translate(${0.01 * width}, ${0.1 * height})`)
-    .attr("class", "infoBox");
+    .attr("transform", `translate(${0.05 * width}, ${0.2 * height})`)
+    .attr("class", "infoBox")
+    .style("font", "1rem ubuntu");
 
   let publData = svg
     .append("text")
     .attr("alignment-baseline", "hanging")
-    .text(`publication date: ${info.webPublicationDate}`)
+    .text(`publication date: ${publicationDate}`)
     .style("font-size", "1rem");
 
   let section = svg
