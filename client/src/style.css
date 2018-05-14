@@ -9,7 +9,9 @@
 .header {
   background-color: #3aafa9;
   padding: 1rem;
-  width: 100vw;
+  padding-top: 0.5rem;
+  width: 97vw;
+  box-sizing: border-box;
 }
 
 .main-display {
@@ -24,7 +26,6 @@
   width: 30vw;
   flex-wrap: wrap;
   margin-right: 2vw;
-  /*background-color: #3fa46a;*/
   background-color: #def2f1;
 }
 
@@ -40,17 +41,16 @@
 
 .navbar {
   height: 6vh;
-  /*background-color: #267c78;*/
   background-color: black;
-  width: 100%;
+  width: 97vw;
   overflow: auto;
-  /*padding: 10px;*/
+  box-sizing: border-box;
 }
 
 .navbar-item {
   display: inline-block;
   float: right;
-  background: #267c78;
+  padding-top: 2vh;
 }
 
 .navbar-item a {
@@ -58,14 +58,12 @@
   outline: none;
   font-family: "Raleway";
   font-weight: bold;
-  color: black;
+  color: #fff;
   font-size: 1rem;
   text-align: center;
-
-  appearance: button;
   padding: 1.5vh 15px;
-  /*margin: 1px 10px;*/
-  border-radius: 4px;
+  padding-right: 2vw;
+  /*border-radius: 4px;*/
 }
 
 ul {
@@ -82,7 +80,8 @@ ul {
 
 .searchBar {
   align-self: flex-start;
-  width: 30wv;
+  margin-bottom: 0.5rem;
+  width: 200;
 }
 
 .sidebarItem {
@@ -91,6 +90,10 @@ ul {
   /*text-overflow: ellipsis;
   overflow: hidden;*/
   padding: 5px 10px;
+}
+
+.analyseBtn {
+  color: black;
 }
 
 #d3_display {
@@ -119,6 +122,7 @@ a {
 
 h1 {
   font-family: "Raleway";
+  margin-bottom: 1rem;
   color: #feffff;
 }
 

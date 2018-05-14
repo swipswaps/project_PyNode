@@ -10,7 +10,7 @@ const initialState = {
   processedData: {},
   title: "",
   toggle: {
-    instruction: true,
+    manual: true,
     about: false,
     analysis: false
   }

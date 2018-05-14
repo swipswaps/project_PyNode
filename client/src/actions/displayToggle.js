@@ -4,7 +4,7 @@ export function changeDisplay(displayType) {
   let resetToggle = {
     about: false,
     analysis: false,
-    instruction: false
+    manual: false
   };
   resetToggle[displayType] = true;
   return function(dispatch) {

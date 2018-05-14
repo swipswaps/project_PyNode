@@ -37,7 +37,11 @@ class MultipleArticles extends Component {
           return (
             <div key={i} className="sidebarItem">
               <SingularArticle article={art} />
-              <button onClick={() => this.displayViz(i)} article={art}>
+              <button
+                className="analyseBtn"
+                onClick={() => this.displayViz(i)}
+                article={art}
+              >
                 Analyse
               </button>
             </div>
@@ -49,7 +53,6 @@ class MultipleArticles extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("state", state);
   return {
     articles: state.articles.articles,
     prrocessedData: state.processedData.processedData,
