@@ -32,7 +32,7 @@ which are displayed in the form of bubbles on the screen (using D3js library).
 
 ### From an idea in Jupyter Notebook to a Website
 
-<img src="https://downloader.disk.yandex.ru/preview/fcfefb83d0e302cd4dd5cf292f22689a97fbb6ca8199b5ce03c395c9adc6388e/5ae73597/0acWjf_Znov2i6P-XTV3TGXvE7Z008TNsSS6mxtYEE7KnoxA5IHrcgG-BpC3drJZHBBDoLn4hnNEWD1YQWQbmg%3D%3D?uid=0&filename=JupyterNotebook.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&tknv=v2&size=2048x2048" width="400" />&rightarrow;<img src="https://downloader.disk.yandex.ru/preview/196ea980a957e8af0f5221a3bca0a7756a6aa7e717f5719857d6174ed9966d19/5ae7330e/0acWjf_Znov2i6P-XTV3TC8To2DcxatHLlaqO62dwi2XKStVeBfSuj0AkO7Sd9fFjlusxDFjUzGwg5ALC-zk9w%3D%3D?uid=0&filename=chromeDisplay.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&tknv=v2&size=2048x2048" width="400"/>
+<img src="https://user-images.githubusercontent.com/19667238/39990458-864ecd1c-5764-11e8-8b09-1bc07ac17de1.png" width="400" />&rightarrow;<img src="https://downloader.disk.yandex.ru/preview/196ea980a957e8af0f5221a3bca0a7756a6aa7e717f5719857d6174ed9966d19/5ae7330e/0acWjf_Znov2i6P-XTV3TC8To2DcxatHLlaqO62dwi2XKStVeBfSuj0AkO7Sd9fFjlusxDFjUzGwg5ALC-zk9w%3D%3D?uid=0&filename=chromeDisplay.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&tknv=v2&size=2048x2048" width="400"/>
 
 # Tech/framework used
 
