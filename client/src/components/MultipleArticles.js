@@ -36,7 +36,7 @@ class MultipleArticles extends Component {
             <div key={i} className="sidebarItem">
               <SingularArticle article={art} />
               <button onClick={() => this.displayViz(i)} article={art}>
-                analise
+                Analyse
               </button>
             </div>
           );

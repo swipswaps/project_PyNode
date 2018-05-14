@@ -4,7 +4,11 @@ import { displayTitle } from "../actions/articleTtitleAction";
 
 class Title extends Component {
   render() {
-    return <div>{this.props.title ? <h2>{this.props.title}</h2> : null}</div>;
+    return (
+      <div className="title">
+        {this.props.title ? <h2>{this.props.title}</h2> : null}
+      </div>
+    );
   }
 }
 

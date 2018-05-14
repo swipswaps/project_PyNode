@@ -1,13 +1,18 @@
 import {
   FETCH_GUARDIAN,
   FETCH_PROCESSED_DATA,
-  ARTICLE_TITLE
+  ARTICLE_TITLE,
+  NAVBAR_TOGGLE
 } from "../actions/types";
 
 const initialState = {
   articles: [],
   processedData: {},
-  title: ""
+  title: "",
+  toggle: {
+    instruction: true,
+    about: false
+  }
 };
 
 export default function(state = initialState, action) {
@@ -26,6 +31,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         title: action.payload
+      };
+    case NAVBAR_TOGGLE:
+      return {
+        ...state,
+        toggle: action.payload
       };
     default:
       return state;
