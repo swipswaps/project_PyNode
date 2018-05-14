@@ -1,31 +1,32 @@
 # Project PyNode
 
-The idea behind this project is an attempt to create a small-scale web app that
-would use a model developed in Python for data processing and its results would
-be displayed in the App built using modern web-development tools like: NodeJS,
+This project aimed to create a small-scale web app that
+uses a model developed in Python for data processing and displays its results in an App built using modern web-development tools like: NodeJS,
 React and D3js.
 
 # Motivation
 
-During my two years working as a datas cientist in London, I visited various
-professional Meet-Ups, where I have come across two communities: data scientists
-and web-developers. It was rather striking, how these two groups keep
-separately. At large, I think it was due to the fact, that the technologies each
-group uses do not overlap.
+During my two years working as a data scientist in London, I visited various
+professional Meet-Ups, where I came aross two communities: data scientists
+and web developers. It was rather striking how these two groups keep separate.  Overall, I think this is due to the fact that the technologies used by each
+group do not overlap.
 
-The data scientists community, on the most basic level, often works and develop
-their models in Python using highly popular libraries like scikit-learn, pandas,
+The data science community, on the most basic level, often develops
+its models in Python using highly popular libraries like scikit-learn, pandas,
 NTLK, etc.
 
 At the same time, web developers' most popular programming language is
-Javascript and their stack includes NodeJS, Express, React, Angular, etc
+Javascript and their stack includes NodeJS, Express, React, Angular, etc.
+
+I therefore wanted to develop a project that bridges the divide between data science and web development.  
+Web technology is therefore used to make data analysis available to the general public.  
 
 # Project description with a little more details
 
 The search bar on the screen allows you to search the Guardian articles (using
 Guardian Api). The top-10 most relevant articles are displayed on the left hand
-side. By pressing the "press me" button, backend receives the article id and
-requests its text, process it in Python and sends back to frontend the results,
+side. By pressing the "press me" button, the backend receives the article id and
+requests its text, processes it in Python and sends the results back to the frontend,
 which are displayed in the form of bubbles on the screen (using D3js library).
 
 # Screenshots
