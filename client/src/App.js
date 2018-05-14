@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import { Provider } from "react-redux";
 import store from "./store";
 import MultipleArticles from "./components/MultipleArticles";
-import Circles from "./components/d3";
 import SearchBar from "./components/SearchBar";
-import Title from "./components/Title";
 import Navbar from "./components/Navbar";
+import MainDisplay from "./components/MainDisplay";
 
 export class App extends Component {
   state = {
@@ -30,11 +29,7 @@ export class App extends Component {
               onTextUpdate={this.handleTextUpdate}
               className="sidebar"
             />
-            <div className="main-display">
-              <Title />
-              <hr />
-              <Circles />
-            </div>
+            <MainDisplay />
           </div>
         </div>
       </Provider>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { insertTitle } from "../d3Utils/GraphTitle";
 import * as d3 from "d3";
+import { insertTitle } from "../d3Utils/GraphTitle";
 import { infoBox } from "../d3Utils/infoBox";
 import { createLegendPoints } from "../d3Utils/chartLegend";
 

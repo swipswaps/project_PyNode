@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { displayAbout } from "../actions/navbarToggle";
+import { changeDisplay } from "../actions/displayToggle";
 
 class Navbar extends Component {
   updateToggle = () => {
     console.log("this.props.toggle", this.props.toggle);
-    this.props.displayAbout();
+    this.props.changeDisplay("about");
   };
 
   render() {
@@ -27,7 +27,7 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = state => ({
-  toggle: state.navToggle.toggle
+  toggle: state.disToggle.toggle
 });
 
-export default connect(mapStateToProps, { displayAbout })(Navbar);
+export default connect(mapStateToProps, { changeDisplay })(Navbar);
