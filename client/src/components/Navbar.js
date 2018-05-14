@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { displayAbout } from "../actions/navbarToggle";
+import { changeDisplay } from "../actions/displayToggle";
 
 class Navbar extends Component {
-  updateToggle = () => {
-    console.log("this.props.toggle", this.props.toggle);
-    this.props.displayAbout();
+  updateToggle = displayType => {
+    this.props.changeDisplay(displayType);
   };
 
   render() {
@@ -13,12 +12,14 @@ class Navbar extends Component {
       <nav className="navbar">
         <ul>
           <li className="navbar-item">
-            <a href="#" onClick={this.updateToggle}>
+            <a href="#" onClick={() => this.updateToggle("about")}>
               About
             </a>
           </li>
           <li className="navbar-item">
-            <a href="#">Instruction</a>
+            <a href="#" onClick={() => this.updateToggle("manual")}>
+              Manual
+            </a>
           </li>
         </ul>
       </nav>
@@ -27,7 +28,7 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = state => ({
-  toggle: state.navToggle.toggle
+  toggle: state.disToggle.toggle
 });
 
-export default connect(mapStateToProps, { displayAbout })(Navbar);
+export default connect(mapStateToProps, { changeDisplay })(Navbar);

@@ -2,7 +2,7 @@ import {
   FETCH_GUARDIAN,
   FETCH_PROCESSED_DATA,
   ARTICLE_TITLE,
-  NAVBAR_TOGGLE
+  DISPLAY_TOGGLE
 } from "../actions/types";
 
 const initialState = {
@@ -10,8 +10,9 @@ const initialState = {
   processedData: {},
   title: "",
   toggle: {
-    instruction: true,
-    about: false
+    manual: true,
+    about: false,
+    analysis: false
   }
 };
 
@@ -32,7 +33,7 @@ export default function(state = initialState, action) {
         ...state,
         title: action.payload
       };
-    case NAVBAR_TOGGLE:
+    case DISPLAY_TOGGLE:
       return {
         ...state,
         toggle: action.payload

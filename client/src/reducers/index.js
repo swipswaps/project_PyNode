@@ -5,5 +5,5 @@ export default combineReducers({
   articles: guardianFetchReducer,
   processedData: guardianFetchReducer,
   title: guardianFetchReducer,
-  navToggle: guardianFetchReducer
+  disToggle: guardianFetchReducer
 });
