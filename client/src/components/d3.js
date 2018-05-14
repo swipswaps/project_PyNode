@@ -84,6 +84,7 @@ class Circles extends Component {
       .data(data)
       .enter()
       .append("g")
+      .attr("class", "influenceCircle")
       .attr("id", function(d) {
         return d.word;
       })
@@ -117,6 +118,43 @@ class Circles extends Component {
 
     const nodesCircles = d3.selectAll("circle");
     const nodesTexts = d3.selectAll(".word, .score");
+    const nodesG = d3.selectAll(".influenceCircle");
+
+    const handleMouseOver = function(d, i) {
+      console.log("d", d);
+      // console.log("i", i);
+      let tooltip = svg
+        .append("g")
+        .attr("class", "tooltip")
+        .attr(
+          "transform",
+          `translate(${d.x - radiusScale(d.score) - 100}, ${d.y -
+            radiusScale(d.score) -
+            100})`
+        );
+
+      tooltip
+        .append("rect")
+        .attr("class", "tooltipRect")
+        .attr("width", "30vw")
+        .attr("height", "20vh")
+        .attr("fill", "grey")
+        .attr("fill-opacity", "0.8");
+
+      tooltip
+        .append("text")
+        .attr("alignment-baseline", "hanging")
+        .text(d.word)
+        .attr("fill", "white")
+        .style("font-family", "Raleway")
+        .style("font-size", "1rem");
+    };
+
+    const handelMouseOut = function(d, i) {
+      d3.select(".tooltip").remove();
+    };
+    nodesG.on("mouseover", handleMouseOver);
+    d3.selectAll(".influenceCircle").on("mouseout", handelMouseOut);
 
     //trying axis -----------------------------
     const x = d3
