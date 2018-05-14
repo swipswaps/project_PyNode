@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+/*@import url("https://www.w3schools.com/w3css/4/w3.css");*/
+
 .pageCon {
   display: flex;
   flex-direction: row;
@@ -6,10 +9,10 @@
 .header {
   background-color: #3aafa9;
   padding: 1rem;
-  width: 95vw;
+  width: 100vw;
 }
 
-.flex-container {
+.main-display {
   display: flex;
   flex-direction: column;
   padding-bottom: 0.5rem;
@@ -21,16 +24,55 @@
   width: 30vw;
   flex-wrap: wrap;
   margin-right: 2vw;
+  /*background-color: #3fa46a;*/
   background-color: #def2f1;
 }
 
-.flex-container h2 {
+.main-display h2 {
   width: 60vw;
   height: 5vh;
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 0.5rem;
-  font-family: "ubuntu";
+  font-family: "Raleway";
+  /*font-family: "ubuntu";*/
+}
+
+.navbar {
+  height: 6vh;
+  /*background-color: #267c78;*/
+  background-color: black;
+  width: 100%;
+  overflow: auto;
+  /*padding: 10px;*/
+}
+
+.navbar-item {
+  display: inline-block;
+  float: right;
+  background: #267c78;
+}
+
+.navbar-item a {
+  text-transform: uppercase;
+  outline: none;
+  font-family: "Raleway";
+  font-weight: bold;
+  color: black;
+  font-size: 1rem;
+  text-align: center;
+
+  appearance: button;
+  padding: 1.5vh 15px;
+  /*margin: 1px 10px;*/
+  border-radius: 4px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 #root {
@@ -64,18 +106,28 @@ svg {
 
 a p {
   font-size: 1rem;
+  font-family: "Raleway";
+  /*color: white;*/
   color: #17252a;
   outline: none;
 }
 
 a {
+  text-decoration: none;
   outline: none;
 }
 
 h1 {
+  font-family: "Raleway";
   color: #feffff;
 }
 
 a: visited {
   color: #324f17;
+}
+
+a::after {
+  position: absolute;
+  top: 100%;
+  left: 0;
 }

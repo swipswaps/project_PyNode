@@ -5,6 +5,7 @@ import MultipleArticles from "./components/MultipleArticles";
 import Circles from "./components/d3";
 import SearchBar from "./components/SearchBar";
 import Title from "./components/Title";
+import Navbar from "./components/Navbar";
 
 export class App extends Component {
   state = {
@@ -19,8 +20,9 @@ export class App extends Component {
     return (
       <Provider store={store}>
         <div className="root">
+          <Navbar />
           <div className="header">
-            <h1> Guardian latest </h1>
+            <h1> the Guardian latest </h1>
             <SearchBar onSearch={this.handleArrArticlesUpdate} />
           </div>
           <div className="pageCon">
@@ -28,8 +30,8 @@ export class App extends Component {
               onTextUpdate={this.handleTextUpdate}
               className="sidebar"
             />
-            <div className="flex-container">
-              <Title className="title" />
+            <div className="main-display">
+              <Title />
               <hr />
               <Circles />
             </div>
