@@ -30,7 +30,7 @@ which are displayed in the form of bubbles on the screen (using D3js library).
 
 # Screenshots
 
-### From an idea in Jupyter Notebook to a Website
+### From an idea in Jupyter Notebook to a Web application
 
 <img src="https://user-images.githubusercontent.com/19667238/39990458-864ecd1c-5764-11e8-8b09-1bc07ac17de1.png" width="400" />&rightarrow;<img src="https://user-images.githubusercontent.com/19667238/39990852-95b13b90-5765-11e8-8493-f910288c71a5.png" width="400"/>
 
