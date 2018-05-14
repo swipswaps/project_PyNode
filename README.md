@@ -1,7 +1,7 @@
 # Project PyNode
 
 This project aimed to create a small-scale web app that
-uses a model developed in Python for data processing and displays its results in an App built using modern web-development tools like: NodeJS,
+uses a model developed in Python for data processing and displays its results in an app built using modern web-development tools like: NodeJS,
 React and D3js.
 
 # Motivation
