@@ -54,11 +54,11 @@ To start the project you will need to register with the Guardian to receive the
 
 You will have to add this key in two places:
 
-`project_PyNode/npm install`
+`$...project_PyNode/npm install`
 
 and 
 
-`project_PyNode/client/npm install`
+`$...project_PyNode/client/npm install`
 
 1. Add config.env file to
 
