@@ -54,12 +54,6 @@ To start the project you will need to register with the Guardian to receive the
 
 You will have to add this key in two places:
 
-`$...project_PyNode/npm install`
-
-and 
-
-`$...project_PyNode/client/npm install`
-
 1. Add config.env file to
 
 ```
@@ -88,6 +82,16 @@ with the following
 `export const GUARDIAN_KEY = "insert_dev_key here"`
 
 You will need to run `npm install` twice as well
+
+`$...project_PyNode/npm install`
+
+and 
+
+`$...project_PyNode/client/npm install`
+
+The application uses Python3 and the following libraries should be installed (use `pip` or `conda`):
+
+* `numpy` and `nltk`
 
 
 Finally, in the terminal run the following command:
