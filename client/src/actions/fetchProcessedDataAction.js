@@ -5,6 +5,7 @@ export function fetchProcessedData(articleId) {
   return function(dispatch) {
     sendData("/react", { articleID: articleId }).then(processedData => {
       let pythonOutput = JSON.parse(processedData.result);
+      console.log("pythonOutput", pythonOutput);
       dispatch({
         type: FETCH_PROCESSED_DATA,
         payload: {

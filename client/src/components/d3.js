@@ -92,6 +92,7 @@ class Circles extends Component {
 
     group
       .append("circle")
+      .attr("class", "visible")
       .attr("r", 5)
       .attr("fill", d => {
         return d.sentiment === "negative"
@@ -113,12 +114,18 @@ class Circles extends Component {
       .text(d => ` ${this.format(d.score)}`)
       .attr("fill", "white");
 
+    group
+      .append("circle")
+      .attr("class", "invisible")
+      .attr("r", 5)
+      .attr("opacity", 0);
+
     insertTitle(this.width, this.height);
     infoBox(this.width, this.height, this.props.values);
 
-    const nodesCircles = d3.selectAll("circle");
+    const nodesCircles = d3.selectAll(".visible, .invisible");
     const nodesTexts = d3.selectAll(".word, .score");
-    const nodesG = d3.selectAll(".influenceCircle");
+    const nodesG = d3.selectAll(".invisible, .score, .word");
 
     const handleMouseOver = function(d, i) {
       console.log("d", d);
