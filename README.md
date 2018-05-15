@@ -54,10 +54,16 @@ To start the project you will need to register with the Guardian to receive the
 
 You will have to add this key in two places:
 
+`project_PyNode/npm install`
+
+and 
+
+`project_PyNode/client/npm install`
+
 1. Add config.env file to
 
 ```
-server
+project_PyNode
 |   client
 |   ...
 |   config.env
@@ -68,7 +74,7 @@ inside that file: `GUARDIAN_KEY=insert_dev_key_here`
 2. Add token.js file inside server -> client -> src folder:
 
 ```
-server
+project_PyNode
 |   client
 |   ...
 └───── src
@@ -81,10 +87,13 @@ with the following
 
 `export const GUARDIAN_KEY = "insert_dev_key here"`
 
+You will need to run `npm install` twice as well
+
+
 Finally, in the terminal run the following command:
 
 ```shell
-pavel@pavel~/server$npm run dev
+project_PyNode$npm run dev
 ```
 
 # Stages
