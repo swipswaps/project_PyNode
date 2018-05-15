@@ -1,9 +1,10 @@
 #python2
 
-import sys, math, os, json, numpy as np
+import sys, math, os, json, numpy, copy
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import RegexpTokenizer
+from nltk.tokenize import sent_tokenize
 
 def read_in():
     lines = sys.stdin.readline()
@@ -12,10 +13,25 @@ def read_in():
 
 
 def process_article(corpus):
-    corpus=corpus.lower()
-    tokenizer=RegexpTokenizer(r'\w+')
-    token=tokenizer.tokenize(corpus)
+
+    working_copy = copy.copy(corpus)
+    token_sentence = sent_tokenize(working_copy)
+    words_sentences_pairs = {}
     stops=stopwords.words('english')
+    tokenizer=RegexpTokenizer(r'\w+')
+
+    for sentence in token_sentence:
+        sentence_lower = sentence.lower()
+        token = tokenizer.tokenize(sentence)
+        words = [w for w in token if not w in stops and len(w) > 2]
+        for word in words:
+            if word in words_sentences_pairs.keys():
+                words_sentences_pairs[word].append(sentence)
+            else:
+                words_sentences_pairs[word] = [sentence]
+
+    corpus=corpus.lower()
+    token=tokenizer.tokenize(corpus)
     words=[w for w in token if not w in stops and len(w)>2]
     words_set=list(set(words))
     words_freq=[]
@@ -54,6 +70,9 @@ def process_article(corpus):
         result.append(obj)
         result = sorted(result, key = lambda obj: obj['score'], reverse = True)
 
+    for entry in result:
+        if entry['word'] in words_sentences_pairs.keys():
+            entry['sentences'] = words_sentences_pairs[entry['word']]
     result = { "type": "PYTHON_OUTPUT", "payload": {"result" : result[:15], "wordCount" : len(token)}}
     return json.dumps(result);
 
