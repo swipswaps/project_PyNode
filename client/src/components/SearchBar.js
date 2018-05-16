@@ -18,7 +18,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div className="searchBar">
+      <div className="searchForm">
         <form>
           <input
             id="textInput"

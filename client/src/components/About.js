@@ -1,11 +1,20 @@
 import React, { Component } from "react";
+import profilePhoto from "../assets/profilePhotoCropped.png";
 
 export default class About extends Component {
   render() {
     return (
-      <div className="About">
+      <div className="manual">
         <h2>About</h2>
-        <p>Fuck you</p>
+        <img
+          src={profilePhoto}
+          alt="photo of Pavel"
+          width="200px"
+          align="right"
+        />
+        <p>
+          <span>Pavel Rodionov</span>
+        </p>
       </div>
     );
   }

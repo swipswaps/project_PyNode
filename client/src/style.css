@@ -25,8 +25,9 @@
   flex-direction: column;
   width: 30vw;
   flex-wrap: wrap;
-  margin-right: 2vw;
+  margin-right: 1.5vw;
   background-color: #def2f1;
+  box-sizing: border-box;
 }
 
 .main-display h2 {
@@ -80,15 +81,14 @@ ul {
 
 .searchBar {
   align-self: flex-start;
-  margin-bottom: 0.5rem;
-  width: 200;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  width: 15vw;
 }
 
 .sidebarItem {
   overflow-wrap: break-word;
   word-wrap: break-word;
-  /*text-overflow: ellipsis;
-  overflow: hidden;*/
   padding: 5px 10px;
 }
 
@@ -106,20 +106,42 @@ ul {
 .manual {
   width: 65vw;
   font-family: "Raleway";
-  padding: 2rem;
+  padding: 3rem;
+  margin-top: 2rem;
   padding-right: 4rem;
   box-sizing: border-box;
+  background-color: #e5edf9;
 }
 
 .manual span {
   font-weight: bold;
 }
 
+.blue {
+  color: blue;
+}
+
 .manual h2 {
   font-size: 4rem;
   color: #c40317;
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.manual p {
+  font-size: 1.1rem;
+  /*letter-spacing: 1px;*/
+  word-spacing: 5px;
+  line-height: 1.5rem;
+}
+
+.manual h3 {
+  padding-top: 2rem;
+}
+
+.manual img {
+  padding: 1rem;
+  padding-top: 0rem;
 }
 
 svg {
@@ -145,9 +167,9 @@ h1 {
   color: #feffff;
 }
 
-a: visited {
+/*a: visited {
   color: #324f17;
-}
+}*/
 
 a::after {
   position: absolute;
