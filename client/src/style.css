@@ -103,6 +103,25 @@ ul {
   display: inline-block;
 }
 
+.manual {
+  width: 65vw;
+  font-family: "Raleway";
+  padding: 2rem;
+  padding-right: 4rem;
+  box-sizing: border-box;
+}
+
+.manual span {
+  font-weight: bold;
+}
+
+.manual h2 {
+  font-size: 4rem;
+  color: #c40317;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
 svg {
   background-color: #e5edf9;
 }

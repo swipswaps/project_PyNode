@@ -7,7 +7,7 @@ import { changeDisplay } from "../actions/displayToggle";
 
 const SingularArticle = ({ article: { webTitle, webUrl, id } }) => {
   return (
-    <a href={webUrl}>
+    <a href={webUrl} target="_blank">
       <p>{webTitle}</p>
     </a>
   );

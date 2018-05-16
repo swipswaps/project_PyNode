@@ -4,6 +4,7 @@ import Title from "./Title";
 import Circles from "./d3";
 import About from "./About";
 import Manual from "./Manual";
+import PythonProcessing from "./PythonProcessing";
 
 class MainDisplay extends Component {
   render() {
@@ -11,6 +12,8 @@ class MainDisplay extends Component {
       <About />
     ) : this.props.toggle.manual ? (
       <Manual />
+    ) : this.props.toggle.awating ? (
+      <PythonProcessing />
     ) : (
       <div className="main-display">
         <Title />

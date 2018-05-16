@@ -12,7 +12,8 @@ const initialState = {
   toggle: {
     manual: true,
     about: false,
-    analysis: false
+    analysis: false,
+    awating: false
   }
 };
 

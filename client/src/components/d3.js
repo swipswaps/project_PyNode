@@ -4,6 +4,7 @@ import * as d3 from "d3";
 import { insertTitle } from "../d3Utils/GraphTitle";
 import { infoBox } from "../d3Utils/infoBox";
 import { createLegendPoints } from "../d3Utils/chartLegend";
+import PythonProcessing from "./PythonProcessing";
 
 class Circles extends Component {
   width = 0.6 * window.innerWidth;
