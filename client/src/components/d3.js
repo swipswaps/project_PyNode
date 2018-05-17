@@ -4,6 +4,7 @@ import * as d3 from "d3";
 import { insertTitle } from "../d3Utils/GraphTitle";
 import { infoBox } from "../d3Utils/infoBox";
 import { createLegendPoints } from "../d3Utils/chartLegend";
+import { colorPicker } from "../d3Utils/colorPicker";
 import PythonProcessing from "./PythonProcessing";
 
 class Circles extends Component {
@@ -96,9 +97,7 @@ class Circles extends Component {
       .attr("class", "visible")
       .attr("r", 5)
       .attr("fill", d => {
-        return d.sentiment === "negative"
-          ? color(-1 * d.score)
-          : d.sentiment === "positive" ? color(d.score) : "lightblue";
+        return colorPicker(d, color);
       });
 
     group
@@ -130,7 +129,7 @@ class Circles extends Component {
 
     const handleMouseOver = function(d, i) {
       console.log("d", d);
-      // console.log("i", i);
+      let dataPoint = d;
       let tooltip = svg
         .append("g")
         .attr("class", "tooltip")
@@ -141,21 +140,49 @@ class Circles extends Component {
             100})`
         );
 
-      tooltip
-        .append("rect")
-        .attr("class", "tooltipRect")
-        .attr("width", "30vw")
-        .attr("height", "20vh")
-        .attr("fill", "grey")
-        .attr("fill-opacity", "0.8");
+      let foreignObject = tooltip
+        .append("foreignObject")
+        .attr("class", "tooltipFo")
+        .attr("width", "40vw")
+        .attr("height", "30vh")
+        .attr("x", 0)
+        .attr("y", "-2rem");
 
-      tooltip
-        .append("text")
-        .attr("alignment-baseline", "hanging")
-        .text(d.word)
-        .attr("fill", "white")
-        .style("font-family", "Raleway")
-        .style("font-size", "1rem");
+      let tooltipContainer = foreignObject
+        .append("xhtml:div")
+        .style("background-color", "#FFCFB3")
+        .attr("class", "tooltipDiv");
+
+      // console.log(
+      //   "getBoundingClientRect().height",
+      //   tooltipContainer.getBoundingClientRect().height
+      // );
+
+      const displaySentences = () => {
+        for (let i = 0; i < d.sentences.length; i++) {
+          let sentence = d.sentences[i];
+          //let word = d.word;
+          // sentence.replace(word, `<span>${word}<span/>`);
+          tooltipContainer.append("p").text(`    ${i + 1}. ${sentence}`);
+        }
+      };
+
+      displaySentences();
+      // tooltip
+      //   .append("rect")
+      //   .attr("class", "tooltipRect")
+      //   .attr("width", "30vw")
+      //   .attr("height", "20vh")
+      //   .attr("fill", "grey")
+      //   .attr("fill-opacity", "0.8");
+      //
+      // tooltip
+      //   .append("text")
+      //   .attr("alignment-baseline", "hanging")
+      //   .text(d.word)
+      //   .attr("fill", "white")
+      //   .style("font-family", "Raleway")
+      //   .style("font-size", "1rem");
     };
 
     const handelMouseOut = function(d, i) {

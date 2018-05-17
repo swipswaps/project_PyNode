@@ -176,3 +176,14 @@ a::after {
   top: 100%;
   left: 0;
 }
+
+/*styling tooltips--------------------------------------*/
+.tooltipDiv {
+  /*width: 30vw;
+  height: 20vh;*/
+  font-family: "Raleway";
+  /*background-color: #ccffcc;*/
+}
+.tooltipDiv p {
+  padding: 0.5rem;
+}
