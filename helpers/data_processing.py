@@ -26,9 +26,9 @@ def process_article(corpus):
         words = [w for w in token if not w in stops and len(w) > 2]
         for word in words:
             if word in words_sentences_pairs.keys():
-                words_sentences_pairs[word].append(sentence)
+                words_sentences_pairs[word.lower()].append(sentence)
             else:
-                words_sentences_pairs[word] = [sentence]
+                words_sentences_pairs[word.lower()] = [sentence]
 
     corpus=corpus.lower()
     token=tokenizer.tokenize(corpus)
