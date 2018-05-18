@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { changeDisplay } from "../actions/displayToggle";
+import { changeDisplay } from "../actions/displayToggleAction";
 
 class Navbar extends Component {
   updateToggle = displayType => {
@@ -28,7 +28,7 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = state => ({
-  toggle: state.disToggle.toggle
+  toggle: state.toggle.toggle
 });
 
 export default connect(mapStateToProps, { changeDisplay })(Navbar);

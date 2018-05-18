@@ -1,20 +1,11 @@
 import {
   FETCH_GUARDIAN,
   FETCH_PROCESSED_DATA,
-  ARTICLE_TITLE,
-  DISPLAY_TOGGLE
+  REQUEST_PROCESSED_DATA
 } from "../actions/types";
 
 const initialState = {
-  articles: [],
-  processedData: {},
-  title: "",
-  toggle: {
-    manual: true,
-    about: false,
-    analysis: false,
-    awating: false
-  }
+  articles: []
 };
 
 export default function(state = initialState, action) {
@@ -23,21 +14,6 @@ export default function(state = initialState, action) {
       return {
         ...state,
         articles: action.payload
-      };
-    case FETCH_PROCESSED_DATA:
-      return {
-        ...state,
-        processedData: action.payload
-      };
-    case ARTICLE_TITLE:
-      return {
-        ...state,
-        title: action.payload
-      };
-    case DISPLAY_TOGGLE:
-      return {
-        ...state,
-        toggle: action.payload
       };
     default:
       return state;

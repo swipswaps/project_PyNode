@@ -4,7 +4,7 @@ import Title from "./Title";
 import Circles from "./d3";
 import About from "./About";
 import Manual from "./Manual";
-import PythonProcessing from "./PythonProcessing";
+import LoadingPage from "./LoadingPage";
 
 class MainDisplay extends Component {
   render() {
@@ -13,7 +13,7 @@ class MainDisplay extends Component {
     ) : this.props.toggle.manual ? (
       <Manual />
     ) : this.props.toggle.awating ? (
-      <PythonProcessing />
+      <LoadingPage />
     ) : (
       <div className="main-display">
         <Title />
@@ -25,7 +25,7 @@ class MainDisplay extends Component {
 }
 
 const mapStateToProps = state => ({
-  toggle: state.disToggle.toggle
+  toggle: state.toggle.toggle
 });
 
 export default connect(mapStateToProps)(MainDisplay);

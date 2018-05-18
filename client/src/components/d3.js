@@ -5,7 +5,7 @@ import { insertTitle } from "../d3Utils/GraphTitle";
 import { infoBox } from "../d3Utils/infoBox";
 import { createLegendPoints } from "../d3Utils/chartLegend";
 import { colorPicker } from "../d3Utils/colorPicker";
-import PythonProcessing from "./PythonProcessing";
+import LoadingPage from "./LoadingPage";
 
 class Circles extends Component {
   width = 0.6 * window.innerWidth;
@@ -48,6 +48,7 @@ class Circles extends Component {
       fontSize = 4;
 
     let data = this.props.values.result;
+    console.log("data", data);
 
     let minSize = data[data.length - 1].score;
     let maxSize = data[0].score;
@@ -78,7 +79,6 @@ class Circles extends Component {
       .alphaDecay([0.001]);
 
     const svg = d3.select("#d3_display");
-
     svg.selectAll("g").remove();
 
     const group = svg
@@ -91,7 +91,7 @@ class Circles extends Component {
         return d.word;
       })
       .call(drag);
-
+    console.log("group", group);
     group
       .append("circle")
       .attr("class", "visible")
@@ -125,71 +125,62 @@ class Circles extends Component {
 
     const nodesCircles = d3.selectAll(".visible, .invisible");
     const nodesTexts = d3.selectAll(".word, .score");
-    const nodesG = d3.selectAll(".invisible, .score, .word");
+    const nodesG = d3.selectAll(".invisible");
 
     const handleMouseOver = function(d, i) {
-      console.log("d", d);
       let dataPoint = d;
       let tooltip = svg
         .append("g")
         .attr("class", "tooltip")
         .attr(
           "transform",
-          `translate(${d.x - radiusScale(d.score) - 100}, ${d.y -
-            radiusScale(d.score) -
-            100})`
+          `translate(${d.x - radiusScale(d.score)}, ${d.y -
+            radiusScale(d.score)})`
         );
 
       let foreignObject = tooltip
         .append("foreignObject")
         .attr("class", "tooltipFo")
-        .attr("width", "40vw")
-        .attr("height", "30vh")
-        .attr("x", 0)
-        .attr("y", "-2rem");
+        .attr("width", "30vw");
+      //  .attr("x", 0);
+      //.attr("y", "-2rem");
 
       let tooltipContainer = foreignObject
         .append("xhtml:div")
+        //.append("div")
         .style("background-color", "#FFCFB3")
         .attr("class", "tooltipDiv");
-
-      // console.log(
-      //   "getBoundingClientRect().height",
-      //   tooltipContainer.getBoundingClientRect().height
-      // );
 
       const displaySentences = () => {
         for (let i = 0; i < d.sentences.length; i++) {
           let sentence = d.sentences[i];
-          //let word = d.word;
-          // sentence.replace(word, `<span>${word}<span/>`);
-          tooltipContainer.append("p").text(`    ${i + 1}. ${sentence}`);
+          tooltipContainer
+            .append("p")
+            .attr("class", "tooltipP")
+            .text(`    ${i + 1}. ${sentence}`);
         }
       };
-
       displaySentences();
-      // tooltip
-      //   .append("rect")
-      //   .attr("class", "tooltipRect")
-      //   .attr("width", "30vw")
-      //   .attr("height", "20vh")
-      //   .attr("fill", "grey")
-      //   .attr("fill-opacity", "0.8");
-      //
-      // tooltip
-      //   .append("text")
-      //   .attr("alignment-baseline", "hanging")
-      //   .text(d.word)
-      //   .attr("fill", "white")
-      //   .style("font-family", "Raleway")
-      //   .style("font-size", "1rem");
+      let foHeight = tooltipContainer._groups[0][0].getBoundingClientRect()
+        .height;
+      let foWidth = tooltipContainer._groups[0][0].getBoundingClientRect()
+        .width;
+      //foreignObject.attr("height", foHeight);
+      // console.log(
+      //   "tooltipContainer",
+      //   tooltipContainer._groups[0][0].getBoundingClientRect().height
+      // );
+      foreignObject
+        .attr("height", foHeight)
+        .attr("x", -foWidth / 2)
+        .attr("y", -foHeight);
     };
 
     const handelMouseOut = function(d, i) {
       d3.select(".tooltip").remove();
     };
     nodesG.on("mouseover", handleMouseOver);
-    d3.selectAll(".influenceCircle").on("mouseout", handelMouseOut);
+    d3.selectAll(".invisible").on("mouseout", handelMouseOut);
 
     //trying axis -----------------------------
     const x = d3
@@ -285,7 +276,10 @@ class Circles extends Component {
   }
 
   render() {
-    if (Object.keys(this.props.values).length !== 0) {
+    const { isFetching } = this.props;
+    const isEmpty = Object.keys(this.props.values).length === 0;
+
+    if (!isEmpty) {
       this.initialise();
     }
     return <svg id="d3_display" />;
@@ -294,7 +288,8 @@ class Circles extends Component {
 
 const mapStateToProps = state => {
   return {
-    values: state.processedData.processedData
+    values: state.processedData.processedData,
+    isFetching: state.processedData.isFetching
   };
 };
 
