@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { fetchGuardian } from "../actions/guardianFetchAction";
 import { fetchProcessedData } from "../actions/fetchProcessedDataAction";
 import { displayTitle } from "../actions/articleTtitleAction";
-import { changeDisplay } from "../actions/displayToggle";
+import { changeDisplay } from "../actions/displayToggleAction";
 
 const SingularArticle = ({ article: { webTitle, webUrl, id } }) => {
   return (
@@ -14,10 +14,6 @@ const SingularArticle = ({ article: { webTitle, webUrl, id } }) => {
 };
 
 class MultipleArticles extends Component {
-  state = {
-    articleText: ""
-  };
-
   displayViz = index => {
     let title = this.props.articles[index].webTitle;
     let articleId = this.props.articles[index].id;
@@ -27,6 +23,8 @@ class MultipleArticles extends Component {
   };
 
   componentWillMount() {
+    const { dispatch } = this.props;
+    console.log("dispatch", dispatch);
     this.props.fetchGuardian();
   }
 
