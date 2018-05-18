@@ -13,6 +13,6 @@ class Title extends Component {
 }
 
 const mapStateToProps = state => ({
-  title: state.title.title
+  title: state.toggle.title
 });
 export default connect(mapStateToProps, { displayTitle })(Title);

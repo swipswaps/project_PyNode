@@ -25,7 +25,7 @@ class MainDisplay extends Component {
 }
 
 const mapStateToProps = state => ({
-  toggle: state.disToggle.toggle
+  toggle: state.toggle.toggle
 });
 
 export default connect(mapStateToProps)(MainDisplay);

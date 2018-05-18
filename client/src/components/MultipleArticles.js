@@ -54,7 +54,7 @@ const mapStateToProps = state => {
   return {
     articles: state.articles.articles,
     prrocessedData: state.processedData.processedData,
-    toggle: state.disToggle.toggle
+    toggle: state.toggle.toggle
   };
 };
 

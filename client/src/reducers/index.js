@@ -6,6 +6,5 @@ import fetchProcessedData from "./fetchProcessedData";
 export default combineReducers({
   articles: guardianFetchReducer,
   processedData: fetchProcessedData,
-  title: mainDisplayReducer,
-  disToggle: mainDisplayReducer
+  toggle: mainDisplayReducer
 });

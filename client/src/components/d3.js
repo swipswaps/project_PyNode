@@ -48,6 +48,7 @@ class Circles extends Component {
       fontSize = 4;
 
     let data = this.props.values.result;
+    console.log("data", data);
 
     let minSize = data[data.length - 1].score;
     let maxSize = data[0].score;
@@ -78,7 +79,6 @@ class Circles extends Component {
       .alphaDecay([0.001]);
 
     const svg = d3.select("#d3_display");
-
     svg.selectAll("g").remove();
 
     const group = svg
@@ -91,7 +91,7 @@ class Circles extends Component {
         return d.word;
       })
       .call(drag);
-
+    console.log("group", group);
     group
       .append("circle")
       .attr("class", "visible")
@@ -276,7 +276,10 @@ class Circles extends Component {
   }
 
   render() {
-    if (Object.keys(this.props.values).length !== 0) {
+    const { isFetching } = this.props;
+    const isEmpty = Object.keys(this.props.values).length === 0;
+
+    if (!isEmpty) {
       this.initialise();
     }
     return <svg id="d3_display" />;
@@ -285,7 +288,8 @@ class Circles extends Component {
 
 const mapStateToProps = state => {
   return {
-    values: state.processedData.processedData
+    values: state.processedData.processedData,
+    isFetching: state.processedData.isFetching
   };
 };
 
