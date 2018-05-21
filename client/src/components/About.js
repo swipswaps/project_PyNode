@@ -9,7 +9,7 @@ export default class About extends Component {
         <img
           src={profilePhoto}
           alt="photo of Pavel"
-          width="200px"
+          width="400px"
           align="right"
         />
         <p>
