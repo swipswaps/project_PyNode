@@ -12,8 +12,6 @@ class MainDisplay extends Component {
       <About />
     ) : this.props.toggle.manual ? (
       <Manual />
-    ) : this.props.toggle.awating ? (
-      <LoadingPage />
     ) : (
       <div className="main-display">
         <Title />
