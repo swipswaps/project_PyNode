@@ -85,7 +85,7 @@ You will need to run `npm install` twice as well
 
 `$...project_PyNode/npm install`
 
-and 
+and
 
 `$...project_PyNode/client/npm install`
 
@@ -103,3 +103,9 @@ project_PyNode$npm run dev
 # Stages
 
 * Stage 1 The Python code will be invoked as a child process on the backend
+
+# Deploying Instructions:
+
+1. cd ./client then "npm run build", then return to the root "cd ..".
+2. comment out "/build" in the gitigonre in the root.
+3. comment out "/build" and "token" in the gitigonre in the root of the client.
