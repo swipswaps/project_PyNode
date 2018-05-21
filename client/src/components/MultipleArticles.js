@@ -24,7 +24,6 @@ class MultipleArticles extends Component {
 
   componentWillMount() {
     const { dispatch } = this.props;
-    console.log("dispatch", dispatch);
     this.props.fetchGuardian();
   }
 
