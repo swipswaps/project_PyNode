@@ -169,9 +169,9 @@ h1 {
   color: #feffff;
 }
 
-/*a: visited {
-  color: #324f17;
-}*/
+.loadingPage {
+  color: #c40317;
+}
 
 a::after {
   position: absolute;
