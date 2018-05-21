@@ -266,13 +266,21 @@ class Circles extends Component {
   }
 
   render() {
-    //const { isFetching } = this.props;
+    const { isFetching } = this.props;
     const isEmpty = Object.keys(this.props.values).length === 0;
 
     if (!isEmpty) {
+      d3
+        .select("svg")
+        .selectAll("*")
+        .remove();
       this.initialise();
     }
-    return <svg id="d3_display" />;
+    return (
+      <div>
+        <svg id="d3_display" />
+      </div>
+    );
   }
 }
 

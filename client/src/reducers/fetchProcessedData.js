@@ -14,7 +14,8 @@ const fetchProcessedData = (state = initialState, action) => {
     case REQUEST_PROCESSED_DATA:
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
+        processedData: {}
       };
     case RECEIVE_PROCESSED_DATA:
       return {
