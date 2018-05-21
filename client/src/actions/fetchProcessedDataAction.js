@@ -7,7 +7,6 @@ export const requestProcessedData = articleId => ({
 });
 
 const shouldFetchPosts = (state, articleId) => {
-  console.log("state", state.processedData.articleId);
   return true;
 };
 
@@ -22,7 +21,7 @@ export const receiveProcessedData = (result, processedData) => ({
 });
 
 export const fetchProcessedData = articleId => (dispatch, getState) => {
-  dispatch(requestProcessedData(articleId));
+  //dispatch(requestProcessedData(articleId));
   if (shouldFetchPosts(getState(), articleId)) {
     sendData("/react", { articleID: articleId }).then(processedData => {
       let pythonOutput = JSON.parse(processedData.result);

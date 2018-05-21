@@ -48,7 +48,6 @@ class Circles extends Component {
       fontSize = 4;
 
     let data = this.props.values.result;
-    console.log("data", data);
 
     let minSize = data[data.length - 1].score;
     let maxSize = data[0].score;
@@ -91,7 +90,7 @@ class Circles extends Component {
         return d.word;
       })
       .call(drag);
-    console.log("group", group);
+
     group
       .append("circle")
       .attr("class", "visible")
@@ -142,12 +141,9 @@ class Circles extends Component {
         .append("foreignObject")
         .attr("class", "tooltipFo")
         .attr("width", "30vw");
-      //  .attr("x", 0);
-      //.attr("y", "-2rem");
 
       let tooltipContainer = foreignObject
         .append("xhtml:div")
-        //.append("div")
         .style("background-color", "#FFCFB3")
         .attr("class", "tooltipDiv");
 
@@ -165,11 +161,7 @@ class Circles extends Component {
         .height;
       let foWidth = tooltipContainer._groups[0][0].getBoundingClientRect()
         .width;
-      //foreignObject.attr("height", foHeight);
-      // console.log(
-      //   "tooltipContainer",
-      //   tooltipContainer._groups[0][0].getBoundingClientRect().height
-      // );
+
       foreignObject
         .attr("height", foHeight)
         .attr("x", -foWidth / 2)
@@ -198,8 +190,6 @@ class Circles extends Component {
       );
 
     let gridData = createLegendPoints(-maxSize, maxSize, 9, color);
-
-    //axis.selectAll("rect").remove();
 
     axis
       .selectAll("rect")
@@ -276,7 +266,7 @@ class Circles extends Component {
   }
 
   render() {
-    const { isFetching } = this.props;
+    //const { isFetching } = this.props;
     const isEmpty = Object.keys(this.props.values).length === 0;
 
     if (!isEmpty) {
