@@ -65,7 +65,7 @@ project_PyNode
 
 inside that file: `GUARDIAN_KEY=insert_dev_key_here`
 
-2. Add token.js file inside server -> client -> src folder:
+2. Add token.js file inside project_PyNode -> client -> src folder:
 
 ```
 project_PyNode
