@@ -24,7 +24,9 @@ export const fetchProcessedData = articleId => (dispatch, getState) => {
   dispatch(requestProcessedData(articleId));
   if (shouldFetchPosts(getState(), articleId)) {
     sendData("/react", { articleID: articleId }).then(processedData => {
-      let pythonOutput = JSON.parse(processedData.result);
+      //let pythonOutput = JSON.parse(processedData.result);
+      let pythonOutput = processedData.result;
+      console.log("pythonOutput", pythonOutput);
       dispatch(receiveProcessedData(pythonOutput, processedData));
     });
   }

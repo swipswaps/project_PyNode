@@ -1,41 +1,7 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { searchBarToggle } from "../actions/searchBarToggleAction";
 
-class AdvancedSearch extends Component {
-  state = {
-    search: "",
-    fromDate: "",
-    toDate: "",
-    section: ""
-  };
-
-  handleChange = event => {
-    event.preventDefault();
-  };
-
-  switchToggle = event => {
-    event.preventDefault();
-    this.props.searchBarToggle();
-  };
-
+export default class AdvancedSearch extends Component {
   render() {
-    return (
-      <div className="searchForm">
-        <form action="">
-          <input type="text" />
-          <input type="date" />
-          <input type="date" />
-          <button>search</button>
-          <button onClick={this.switchToggle}>basic search</button>
-        </form>
-      </div>
-    );
+    return <h1>Hello World</h1>;
   }
 }
-
-const mapStateToProps = state => ({
-  toggle: state.advancedSearch.toggle
-});
-
-export default connect(mapStateToProps, { searchBarToggle })(AdvancedSearch);
