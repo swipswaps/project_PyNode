@@ -11,14 +11,22 @@ const dataReq = async (req, res, next) => {
     let result = await fetch(g_url);
     let json = await result.json();
     let guardianResponse = json.response.content;
-    result = await pyReq("python3", guardianResponse);
+    result = await fetch("https://meaninginquiry.tech/influence", {
+      method: "post",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify({ payload: guardianResponse.fields.bodyText })
+    });
+    //result = await pyReq("python3", guardianResponse);
+    result = await result.json();
     res.send(
       JSON.stringify({
         type: "BACKEND-OUTPUT",
         payload: {
           sectionName: guardianResponse.sectionName,
           webPublicationDate: guardianResponse.webPublicationDate,
-          result
+          result: result
         }
       })
     );

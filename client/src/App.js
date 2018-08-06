@@ -5,6 +5,7 @@ import MultipleArticles from "./components/MultipleArticles";
 import SearchBar from "./components/SearchBar";
 import Navbar from "./components/Navbar";
 import MainDisplay from "./components/MainDisplay";
+import AdvancedSearch from "./components/AdvancedSearch";
 
 export class App extends Component {
   state = {
@@ -22,7 +23,7 @@ export class App extends Component {
           <Navbar />
           <div className="header">
             <h1> the Guardian latest </h1>
-            <SearchBar onSearch={this.handleArrArticlesUpdate} />
+            <SearchBar />
           </div>
           <div className="pageCon">
             <MultipleArticles

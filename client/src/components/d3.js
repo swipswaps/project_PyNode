@@ -148,7 +148,8 @@ class Circles extends Component {
         .attr("class", "tooltipDiv");
 
       const displaySentences = () => {
-        for (let i = 0; i < d.sentences.length; i++) {
+        let numSentences = Math.min(3, d.sentences.length);
+        for (let i = 0; i < numSentences; i++) {
           let sentence = d.sentences[i];
           tooltipContainer
             .append("p")
