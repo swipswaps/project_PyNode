@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { fetchGuardian } from "../actions/guardianFetchAction";
-import { searchBarToggle } from "../actions/searchBarToggleAction";
-import AdvancedSearch from "./AdvancedSearch";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchGuardian } from '../../actions/guardianFetchAction';
+import { searchBarToggle } from '../../actions/searchBarToggleAction';
+import AdvancedSearch from '../AdvancedSearch';
 
 class SearchBar extends Component {
   state = {
-    search: ""
+    search: ''
   };
 
   handleChange = event => {
@@ -20,13 +20,13 @@ class SearchBar extends Component {
 
   switchToggle = event => {
     event.preventDefault();
-    console.log("switch toggle was called");
+    console.log('switch toggle was called');
     this.props.searchBarToggle();
   };
 
   render() {
     let toggle = this.props.toggle;
-    console.log("toggle", this.props);
+    console.log('toggle', this.props);
     return (
       <div className="searchForm">
         {!toggle ? (
@@ -37,8 +37,12 @@ class SearchBar extends Component {
               value={this.state.search}
               onChange={this.handleChange}
             />
-            <button onClick={this.searchRequest}>search</button>
-            <button onClick={this.switchToggle}>advanced search</button>
+            <button className="btn" onClick={this.searchRequest}>
+              search
+            </button>
+            <button className="btn" onClick={this.switchToggle}>
+              advanced
+            </button>
           </form>
         ) : (
           <AdvancedSearch />

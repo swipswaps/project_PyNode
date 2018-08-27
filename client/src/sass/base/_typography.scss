@@ -1,0 +1,59 @@
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #777;
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  display: block;
+  font-size: 4rem;
+  font-weight: 400;
+}
+
+%button-shared {
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.btn-link {
+  &:link,
+  &:active,
+  &:visited {
+    @extend %button-shared;
+
+    display: inline-block;
+    color: $color-white;
+    font-size: $default-font-size;
+    background-color: $color-primary-dark;
+    font-weight: 600;
+    padding: 0.5rem 2rem;
+    margin: 1rem;
+    width: 15rem;
+  }
+
+  &:hover {
+  }
+}
+
+.btn {
+  @extend %button-shared;
+  background-color: $color-primary-dark;
+  color: $color-white;
+  font-size: $default-font-size;
+  font-weight: 600;
+  padding: 0.5rem 2rem;
+  margin: 1rem;
+  line-height: inherit;
+  font-family: inherit;
+  border: none;
+  width: 15rem;
+}

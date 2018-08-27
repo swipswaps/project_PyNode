@@ -1,5 +1,5 @@
-import { RECEIVE_PROCESSED_DATA, REQUEST_PROCESSED_DATA } from "./types";
-import { sendData } from "../utils/fetchBackEnd";
+import { RECEIVE_PROCESSED_DATA, REQUEST_PROCESSED_DATA } from './types';
+import { sendData } from '../utils/fetchBackEnd';
 
 export const requestProcessedData = articleId => ({
   type: REQUEST_PROCESSED_DATA,
@@ -23,10 +23,10 @@ export const receiveProcessedData = (result, processedData) => ({
 export const fetchProcessedData = articleId => (dispatch, getState) => {
   dispatch(requestProcessedData(articleId));
   if (shouldFetchPosts(getState(), articleId)) {
-    sendData("/react", { articleID: articleId }).then(processedData => {
-      //let pythonOutput = JSON.parse(processedData.result);
+    sendData('/react', { articleID: articleId }).then(processedData => {
+      console.log('processedData', processedData);
       let pythonOutput = processedData.result;
-      console.log("pythonOutput", pythonOutput);
+      console.log('pythonOutput', pythonOutput);
       dispatch(receiveProcessedData(pythonOutput, processedData));
     });
   }

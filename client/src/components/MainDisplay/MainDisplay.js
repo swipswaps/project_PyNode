@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import Title from "./Title";
-import Circles from "./d3";
-import About from "./About";
-import Manual from "./Manual";
-import LoadingPage from "./LoadingPage";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Title from '../Title';
+import Circles from '../d3/d3';
+import About from '../About';
+import Manual from '../Manual';
+import LoadingPage from '../LoadingPage';
 
 class MainDisplay extends Component {
   render() {
@@ -13,7 +13,7 @@ class MainDisplay extends Component {
     ) : this.props.toggle.manual ? (
       <Manual />
     ) : (
-      <div className="main-display">
+      <div className="main-display col-2-of-3">
         <Title />
         <hr />
         <Circles />

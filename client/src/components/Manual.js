@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import search_bar from "../assets/search_bar.png";
-import listOfArticles from "../assets/listOfArticles.png";
-import display_area from "../assets/display_area.png";
+import React, { Component } from 'react';
+import search_bar from '../assets/search_bar.png';
+import listOfArticles from '../assets/listOfArticles.png';
+import display_area from '../assets/display_area.png';
 
 export default class Manual extends Component {
   render() {
     return (
-      <div className="manual">
+      <div className="manual col-2-of-3">
         <h2>Language is power</h2>
         <p>
           <span> Manual</span> <br />
@@ -15,7 +15,7 @@ export default class Manual extends Component {
           tool identifies the most influential words in the article and
           represents them in the shape of bubbles. A word's influence is based
           on its frequency and whether it is has negative or positive sentiment.
-          More information about word influence is available at{" "}
+          More information about word influence is available at{' '}
           <a
             href="https://github.com/prodionov/project_PyNode/wiki/The-influence-score-calculation"
             target="_blank"

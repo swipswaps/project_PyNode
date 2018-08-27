@@ -1,0 +1,11 @@
+.navbar {
+  width: 100%;
+  background-color: $color-primary-light;
+  padding-right: 10rem;
+
+  @include clearfix;
+}
+
+.buttons {
+  float: right;
+}

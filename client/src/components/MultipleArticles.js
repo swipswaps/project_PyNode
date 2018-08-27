@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { fetchGuardian } from "../actions/guardianFetchAction";
-import { fetchProcessedData } from "../actions/fetchProcessedDataAction";
-import { displayTitle } from "../actions/articleTtitleAction";
-import { changeDisplay } from "../actions/displayToggleAction";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchGuardian } from '../actions/guardianFetchAction';
+import { fetchProcessedData } from '../actions/fetchProcessedDataAction';
+import { displayTitle } from '../actions/articleTtitleAction';
+import { changeDisplay } from '../actions/displayToggleAction';
 
 const SingularArticle = ({ article: { webTitle, webUrl, id } }) => {
   return (
@@ -19,7 +19,7 @@ class MultipleArticles extends Component {
     let articleId = this.props.articles[index].id;
     this.props.fetchProcessedData(articleId);
     this.props.displayTitle(title);
-    this.props.changeDisplay("analysis");
+    this.props.changeDisplay('analysis');
   };
 
   componentWillMount() {
@@ -29,13 +29,13 @@ class MultipleArticles extends Component {
 
   render() {
     return (
-      <div className="titlesCon">
+      <div className="titlesCon col-1-of-3">
         {this.props.articles.map((art, i) => {
           return (
             <div key={i} className="sidebarItem">
               <SingularArticle article={art} />
               <button
-                className="analyseBtn"
+                className="analyseBtn btn-link"
                 onClick={() => this.displayViz(i)}
                 article={art}
               >
