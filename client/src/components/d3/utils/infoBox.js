@@ -20,14 +20,14 @@ export const infoBox = (width, height, info) => {
   let section = svg
     .append('text')
     .attr('alignment-baseline', 'hanging')
-    .attr('y', '1.5rem')
+    .attr('y', '2rem')
     .text(`section: ${info.sectionName}`)
     .style('font-size', '1.6rem');
 
   let wordCount = svg
     .append('text')
     .attr('alignment-baseline', 'hanging')
-    .attr('y', '3rem')
+    .attr('y', '4rem')
     .text(`word count: ${info.wordCount}`)
     .style('font-size', '1.6rem');
 };
