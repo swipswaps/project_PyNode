@@ -1,0 +1,12 @@
+.navbar {
+  width: 100%;
+  background-color: darken($color-silver, 60);
+  // background-color: linear-gradient(to right, yellow, red);
+  padding-right: 10rem;
+
+  @include clearfix;
+}
+
+.buttons {
+  float: right;
+}

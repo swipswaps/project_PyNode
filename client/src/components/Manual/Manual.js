@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import search_bar from "../assets/search_bar.png";
-import listOfArticles from "../assets/listOfArticles.png";
-import display_area from "../assets/display_area.png";
+import React, { Component } from 'react';
+import search_bar from '../../assets/search_bar.png';
+import listOfArticles from '../../assets/listOfArticles.png';
+import display_area from '../../assets/display_area.png';
 
 export default class Manual extends Component {
   render() {
     return (
-      <div className="manual">
-        <h2>Language is power</h2>
+      <div className="manual col-2-of-3">
+        <h2 className="heading-secondary">Language is power</h2>
+        <h3 className="heading-tertiary"> Manual</h3>
         <p>
-          <span> Manual</span> <br />
           This website is an attempt to look at the words used by Guardian
           columnists when they write about a particular topic. Its visualisation
           tool identifies the most influential words in the article and
           represents them in the shape of bubbles. A word's influence is based
           on its frequency and whether it is has negative or positive sentiment.
-          More information about word influence is available at{" "}
+          More information about word influence is available at{' '}
           <a
             href="https://github.com/prodionov/project_PyNode/wiki/The-influence-score-calculation"
             target="_blank"
@@ -34,7 +34,8 @@ export default class Manual extends Component {
           <span> Search Bar</span>, <span> List of articles</span> and
           <span> Display area</span>
         </p>
-        <h3>Search bar</h3>
+        <br />
+        <h3 className="heading-tertiary">Search bar</h3>
         <img
           src={search_bar}
           alt="search bar picture"
@@ -50,7 +51,8 @@ export default class Manual extends Component {
           which will allow you to select newspaper sections and from/to dates
           for a more precise search.
         </p>
-        <h3>List of articles (left hand side)</h3>
+        <br />
+        <h3 className="heading-tertiary">List of articles (left hand side)</h3>
         <p>
           The list of articles on the left hand side by default displays the
           titles of the articles published today in the Opinion section of the
@@ -59,7 +61,8 @@ export default class Manual extends Component {
           press the button <span> Analyse</span>, which will display the
           visualisation for that article.
         </p>
-        <h3>Display area</h3>
+        <br />
+        <h3 className="heading-tertiary">Display area</h3>
         <img src={display_area} alt="display_area picture" width="400px" />
         <p>
           The article's title is displayed at the top. The bubbles represent the

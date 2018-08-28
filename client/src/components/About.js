@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import profilePhoto from "../assets/profilePhotoCropped.jpg";
-import ghassanPhoto from "../assets/ghassanProfile.JPG";
+import React, { Component } from 'react';
+import profilePhoto from '../assets/profilePhotoCropped.jpg';
+import ghassanPhoto from '../assets/ghassanProfile.JPG';
 
 export default class About extends Component {
   render() {
     return (
-      <div className="manual">
-        <h2>About</h2>
-        <img src={profilePhoto} alt="Pavel" width="400px" align="right" />
+      <div className="manual col-2-of-3">
+        <h2 className="heading-secondary">About</h2>
+        <img src={profilePhoto} alt="Pavel" width="300px" align="right" />
         <a href="https://www.linkedin.com/in/pavel-rodionov-89aa5037/">
-          <h3>Pavel Rodionov</h3>
+          <h3 className="heading-tertiary">Pavel Rodionov</h3>
         </a>
         <p>
           <br />
@@ -27,9 +27,10 @@ export default class About extends Component {
           in the Middle East.
         </p>
         <a href="https://www.linkedin.com/in/ghassan-maslamani-4428b218/">
-          <h3>Ghassan Maslamani</h3>
+          <br />
+          <h3 className="heading-tertiary">Ghassan Maslamani</h3>
         </a>
-        <img src={ghassanPhoto} alt="Ghassan" width="400px" align="right" />
+        <img src={ghassanPhoto} alt="Ghassan" width="300px" align="right" />
         <p>
           <br />
           Ghassan is intereted in mechatronics and web development.

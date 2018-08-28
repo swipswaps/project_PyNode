@@ -1,15 +1,17 @@
-import React, { Component } from "react";
-import { Provider } from "react-redux";
-import store from "./store";
-import MultipleArticles from "./components/MultipleArticles";
-import SearchBar from "./components/SearchBar";
-import Navbar from "./components/Navbar";
-import MainDisplay from "./components/MainDisplay";
-import AdvancedSearch from "./components/AdvancedSearch";
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import store from './store';
+import MultipleArticles from './components/MultipleArticles/MultipleArticles';
+//import SearchBar from './components/SearchBar/SearchBar';
+import Header from './components/Header/Header';
+import Navbar from './components/Navbar/Navbar';
+import MainDisplay from './components/MainDisplay/MainDisplay.js';
+import AdvancedSearch from './components/AdvancedSearch';
+import './App.css';
 
 export class App extends Component {
   state = {
-    articleText: ""
+    articleText: ''
   };
 
   handleTextUpdate = text => {
@@ -21,14 +23,11 @@ export class App extends Component {
       <Provider store={store}>
         <div className="root">
           <Navbar />
-          <div className="header">
-            <h1> the Guardian latest </h1>
-            <SearchBar />
-          </div>
-          <div className="pageCon">
+          <Header />
+          <div className="row pageCon">
             <MultipleArticles
               onTextUpdate={this.handleTextUpdate}
-              className="sidebar"
+              className="sidebar col-1-of-3"
             />
             <MainDisplay />
           </div>
