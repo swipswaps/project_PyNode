@@ -1,0 +1,31 @@
+.title {
+  padding-top: 3rem;
+  padding-left: 4rem;
+  &__link:link,
+  &__link:active,
+  &__link:visited {
+    // display: inline-block;
+    text-decoration: none;
+    border-radius: 100px;
+    color: $color-grey-dark;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: $default-font-size;
+  }
+}
+
+.btn__link {
+  font-size: $default-font-size;
+  background-color: $color-silver;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  border: none;
+  display: inline-block;
+  float: right;
+  border-radius: 100px;
+  width: 10rem;
+  padding: 1rem;
+  margin-right: 1.5rem;
+}

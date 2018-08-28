@@ -20,7 +20,7 @@ class Navbar extends Component {
           </a>
           <a
             href="#"
-            className="navbar__item btn-link"
+            className="navbar__item btn-link btn-text-red"
             onClick={() => this.updateToggle('manual')}
           >
             Manual

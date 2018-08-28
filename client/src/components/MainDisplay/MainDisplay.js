@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Title from '../Title';
 import Circles from '../d3/d3';
 import About from '../About';
-import Manual from '../Manual';
+import Manual from '../Manual/Manual';
 import LoadingPage from '../LoadingPage';
 
 class MainDisplay extends Component {

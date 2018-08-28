@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { displayTitle } from "../actions/articleTtitleAction";
-import LoadingPage from "./LoadingPage";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { displayTitle } from '../actions/articleTtitleAction';
+import LoadingPage from './LoadingPage';
 
 class Title extends Component {
   render() {
@@ -9,7 +9,9 @@ class Title extends Component {
     return (
       <div className="title">
         {isFetching && <LoadingPage />}
-        {!isFetching && <h2>{this.props.title}</h2>}
+        {!isFetching && (
+          <h3 className="heading-tertiary">{this.props.title}</h3>
+        )}
       </div>
     );
   }

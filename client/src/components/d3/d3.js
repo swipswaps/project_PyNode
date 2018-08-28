@@ -10,15 +10,14 @@ import LoadingPage from '../LoadingPage';
 class Circles extends Component {
   svg_display = React.createRef();
 
-  width = 940;
-  //width = 0.6 * window.innerWidth;
+  width = 0.6 * window.innerWidth;
   height = 0.8 * window.innerHeight;
   scaleIt = this.height;
   t = d3.transition().duration(1000);
   precision = d3.precisionFixed(0.1);
   format = d3.format('.' + this.precision + 'f');
   forceX = 2;
-  forceY = 2;
+  forceY = 2.2;
   radiusX = 30;
   radiusY = 10;
 
@@ -187,7 +186,7 @@ class Circles extends Component {
     const axis = svg
       .append('g')
       .classed('legend', true)
-      .style('font', '1rem ubuntu')
+      .style('font', '1rem Raleway')
       .attr(
         'transform',
         `translate(${0.95 * this.width}, ${0.2 * this.height})`
@@ -208,6 +207,7 @@ class Circles extends Component {
     axis
       .append('text')
       .text('word sentiment')
+      .attr('font-size', '1.6rem')
       .attr('text-anchor', 'middle')
       .attr('alignment-baseline', 'hanging')
       .attr('fill', 'black')

@@ -33,14 +33,14 @@ class SearchBar extends Component {
           <form>
             <input
               id="textInput"
-              className="searchBar"
+              className="search__input"
               value={this.state.search}
               onChange={this.handleChange}
             />
-            <button className="btn" onClick={this.searchRequest}>
+            <button className="btn btn--silver" onClick={this.searchRequest}>
               search
             </button>
-            <button className="btn" onClick={this.switchToggle}>
+            <button className="btn btn--silver" onClick={this.switchToggle}>
               advanced
             </button>
           </form>

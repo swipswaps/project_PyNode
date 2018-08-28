@@ -24,12 +24,27 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
-  margin-bottom: 3rem;
   display: block;
   font-size: 4rem;
   font-weight: 400; }
 
-.btn-link:link, .btn-link:active, .btn-link:visited, .btn {
+.heading-secondary {
+  color: #ff3333;
+  text-transform: uppercase;
+  margin: 0rem 0.5rem;
+  display: block;
+  font-size: 5rem;
+  font-weight: 800; }
+
+.heading-tertiary {
+  display: block;
+  color: #282828;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  line-height: 1.2; }
+
+.btn-link:link, .btn-link:active, .btn-link:visited, .btn, .btn--silver {
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
@@ -38,16 +53,16 @@ body {
 
 .btn-link:link, .btn-link:active, .btn-link:visited {
   display: inline-block;
-  color: #fff;
+  color: #000;
   font-size: 1.6rem;
-  background-color: #28b485;
+  background-color: #c0c0c0;
   font-weight: 600;
   padding: 0.5rem 2rem;
   margin: 1rem;
   width: 15rem; }
 
 .btn {
-  background-color: #28b485;
+  background-color: #c0c0c0;
   color: #fff;
   font-size: 1.6rem;
   font-weight: 600;
@@ -57,6 +72,21 @@ body {
   font-family: inherit;
   border: none;
   width: 15rem; }
+
+.btn--silver {
+  background-color: #c0c0c0;
+  color: #000;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 0.5rem 2rem;
+  margin: 1rem;
+  line-height: inherit;
+  font-family: inherit;
+  border: none;
+  width: 15rem; }
+
+.btn-text-red:link, .btn-text-red:active, .btn-text-red:visited {
+  color: #cc0000; }
 
 .row {
   width: 100%;
@@ -83,7 +113,7 @@ body {
 
 .navbar {
   width: 100%;
-  background-color: #7ed56f;
+  background-color: #272727;
   padding-right: 10rem; }
   .navbar::after {
     content: '';
@@ -93,13 +123,59 @@ body {
 .buttons {
   float: right; }
 
+.searchForm {
+  padding-bottom: 2rem; }
+
+.search__input {
+  border: 0;
+  border-bottom: 2px solid #ff3333;
+  width: 25rem;
+  font-size: 3rem;
+  text-align: center;
+  background: transparent; }
+
 .header {
   width: 100%;
-  background-color: #4286f4;
+  background-color: #5a5a5a;
   padding-left: 10rem; }
 
 .svg_display {
   width: 100%; }
   .svg_display svg {
     width: 100%;
-    height: 70vh; }
+    height: 70vh;
+    font-size: 1.6rem;
+    background-color: #fff;
+    margin-left: 3rem; }
+
+.title {
+  padding-top: 3rem;
+  padding-left: 4rem; }
+  .title__link:link, .title__link:active, .title__link:visited {
+    text-decoration: none;
+    border-radius: 100px;
+    color: #282828;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.6rem; }
+
+.btn__link {
+  font-size: 1.6rem;
+  background-color: #c0c0c0;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  border: none;
+  display: inline-block;
+  float: right;
+  border-radius: 100px;
+  width: 10rem;
+  padding: 1rem;
+  margin-right: 1.5rem; }
+
+.manual {
+  padding: 0 5rem; }
+  .manual p {
+    font-size: 1.6rem;
+    color: #020202; }

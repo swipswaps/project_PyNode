@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
-import MultipleArticles from './components/MultipleArticles';
+import MultipleArticles from './components/MultipleArticles/MultipleArticles';
 //import SearchBar from './components/SearchBar/SearchBar';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';

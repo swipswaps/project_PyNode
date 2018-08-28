@@ -10,10 +10,28 @@ body {
 .heading-primary {
   color: $color-white;
   text-transform: uppercase;
-  margin-bottom: 3rem;
+  // margin-bottom: 2rem;
   display: block;
   font-size: 4rem;
   font-weight: 400;
+}
+
+.heading-secondary {
+  color: $color-bright-red;
+  text-transform: uppercase;
+  margin: 0rem 0.5rem;
+  display: block;
+  font-size: 5rem;
+  font-weight: 800;
+}
+
+.heading-tertiary {
+  display: block;
+  color: $color-grey-dark;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
 }
 
 %button-shared {
@@ -31,9 +49,9 @@ body {
     @extend %button-shared;
 
     display: inline-block;
-    color: $color-white;
+    color: $color-black;
     font-size: $default-font-size;
-    background-color: $color-primary-dark;
+    background-color: $color-silver;
     font-weight: 600;
     padding: 0.5rem 2rem;
     margin: 1rem;
@@ -46,7 +64,7 @@ body {
 
 .btn {
   @extend %button-shared;
-  background-color: $color-primary-dark;
+  background-color: $color-silver;
   color: $color-white;
   font-size: $default-font-size;
   font-weight: 600;
@@ -56,4 +74,26 @@ body {
   font-family: inherit;
   border: none;
   width: 15rem;
+}
+
+.btn--silver {
+  @extend %button-shared;
+  background-color: $color-silver;
+  color: $color-black;
+  font-size: $default-font-size;
+  font-weight: 600;
+  padding: 0.5rem 2rem;
+  margin: 1rem;
+  line-height: inherit;
+  font-family: inherit;
+  border: none;
+  width: 15rem;
+}
+
+.btn-text-red {
+  &:link,
+  &:active,
+  &:visited {
+    color: darken($color-bright-red, 20);
+  }
 }

@@ -1,0 +1,7 @@
+.manual {
+  padding: 0 5rem;
+  p {
+    font-size: $default-font-size;
+    color: darken($color-grey-dark, 15);
+  }
+}

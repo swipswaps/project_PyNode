@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchGuardian } from '../actions/guardianFetchAction';
-import { fetchProcessedData } from '../actions/fetchProcessedDataAction';
-import { displayTitle } from '../actions/articleTtitleAction';
-import { changeDisplay } from '../actions/displayToggleAction';
+import { fetchGuardian } from '../../actions/guardianFetchAction';
+import { fetchProcessedData } from '../../actions/fetchProcessedDataAction';
+import { displayTitle } from '../../actions/articleTtitleAction';
+import { changeDisplay } from '../../actions/displayToggleAction';
 
 const SingularArticle = ({ article: { webTitle, webUrl, id } }) => {
   return (
-    <a href={webUrl} target="_blank">
-      <p>{webTitle}</p>
+    <a href={webUrl} target="_blank" className="title__link">
+      {webTitle}
     </a>
   );
 };
@@ -29,13 +29,13 @@ class MultipleArticles extends Component {
 
   render() {
     return (
-      <div className="titlesCon col-1-of-3">
+      <div className="titles col-1-of-3">
         {this.props.articles.map((art, i) => {
           return (
-            <div key={i} className="sidebarItem">
+            <div key={i} className="title">
               <SingularArticle article={art} />
               <button
-                className="analyseBtn btn-link"
+                className="analyseBtn btn__link"
                 onClick={() => this.displayViz(i)}
                 article={art}
               >
