@@ -1,40 +1,39 @@
 # Project PyNode
 
-The idea behind this project is an attempt to create a small-scale web app that
-would use a model developed in Python for data processing and its results would
-be displayed in the App built using modern web-development tools like: NodeJS,
+This project aimed to create a small-scale web app that
+uses a model developed in Python for data processing and displays its results in an app built using modern web-development tools like: NodeJS,
 React and D3js.
 
 # Motivation
 
-During my two years working as a datas cientist in London, I visited various
-professional Meet-Ups, where I have come across two communities: data scientists
-and web-developers. It was rather striking, how these two groups keep
-separately. At large, I think it was due to the fact, that the technologies each
-group uses do not overlap.
+During my two years working as a data scientist in London, I visited various
+professional Meet-Ups, where I came aross two communities: data scientists
+and web developers. It was rather striking how these two groups keep separate.  Overall, I think this is due to the fact that the technologies used by each
+group do not overlap.
 
-The data scientists community, on the most basic level, often works and develop
-their models in Python using highly popular libraries like scikit-learn, pandas,
+The data science community, on the most basic level, often develops
+its models in Python using highly popular libraries like scikit-learn, pandas,
 NTLK, etc.
 
 At the same time, web developers' most popular programming language is
-Javascript and their stack includes NodeJS, Express, React, Angular, etc
+Javascript and their stack includes NodeJS, Express, React, Angular, etc.
+
+I therefore wanted to develop a project that bridges the divide between data science and web development.  
+Web technology is therefore used to make data analysis available to the general public.  
 
 # Project description with a little more details
 
 The search bar on the screen allows you to search the Guardian articles (using
 Guardian Api). The top-10 most relevant articles are displayed on the left hand
-side. By pressing the "press me" button, backend receives the article id and
-requests its text, process it in Python and sends back to frontend the results,
+side. By pressing the "press me" button, the backend receives the article id and
+requests its text, processes it in Python and sends the results back to the frontend,
 which are displayed in the form of bubbles on the screen (using D3js library).
 
 # Screenshots
 
-### From prototype to website
+### From an idea in Jupyter Notebook to a Web application
 
-<img src="https://downloader.disk.yandex.ru/preview/fcfefb83d0e302cd4dd5cf292f22689a97fbb6ca8199b5ce03c395c9adc6388e/5ae73597/0acWjf_Znov2i6P-XTV3TGXvE7Z008TNsSS6mxtYEE7KnoxA5IHrcgG-BpC3drJZHBBDoLn4hnNEWD1YQWQbmg%3D%3D?uid=0&filename=JupyterNotebook.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&tknv=v2&size=2048x2048" width="300" />
-
-<img src="https://downloader.disk.yandex.ru/preview/196ea980a957e8af0f5221a3bca0a7756a6aa7e717f5719857d6174ed9966d19/5ae7330e/0acWjf_Znov2i6P-XTV3TC8To2DcxatHLlaqO62dwi2XKStVeBfSuj0AkO7Sd9fFjlusxDFjUzGwg5ALC-zk9w%3D%3D?uid=0&filename=chromeDisplay.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&tknv=v2&size=2048x2048" width="300"/>
+<img src="https://user-images.githubusercontent.com/19667238/39990458-864ecd1c-5764-11e8-8b09-1bc07ac17de1.png" width="400" />&rightarrow;<img src="https://user-images.githubusercontent.com/19667238/39990852-95b13b90-5765-11e8-8493-f910288c71a5.png" width="400"/>
 
 # Tech/framework used
 
@@ -58,7 +57,7 @@ You will have to add this key in two places:
 1. Add config.env file to
 
 ```
-server
+project_PyNode
 |   client
 |   ...
 |   config.env
@@ -66,10 +65,10 @@ server
 
 inside that file: `GUARDIAN_KEY=insert_dev_key_here`
 
-2. Add token.js file inside server -> client -> src folder:
+2. Add token.js file inside project_PyNode -> client -> src folder:
 
 ```
-server
+project_PyNode
 |   client
 |   ...
 └───── src
@@ -82,12 +81,31 @@ with the following
 
 `export const GUARDIAN_KEY = "insert_dev_key here"`
 
+You will need to run `npm install` twice as well
+
+`$...project_PyNode/npm install`
+
+and
+
+`$...project_PyNode/client/npm install`
+
+The application uses Python3 and the following libraries should be installed (use `pip` or `conda`):
+
+* `numpy` and `nltk`
+
+
 Finally, in the terminal run the following command:
 
 ```shell
-pavel@pavel~/server$npm run dev
+project_PyNode$npm run dev
 ```
 
 # Stages
 
 * Stage 1 The Python code will be invoked as a child process on the backend
+
+# Deploying Instructions:
+
+1. cd ./client then "npm run build", then return to the root "cd ..".
+2. comment out "/build" in the gitigonre in the root.
+3. comment out "/build" and "token" in the gitigonre in the root of the client.
