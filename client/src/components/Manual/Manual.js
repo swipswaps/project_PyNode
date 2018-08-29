@@ -6,7 +6,7 @@ import display_area from '../../assets/display_area.png';
 export default class Manual extends Component {
   render() {
     return (
-      <div className="manual col-2-of-3">
+      <div className="col-2-of-3 manual ">
         <h2 className="heading-secondary">Language is power</h2>
         <h3 className="heading-tertiary"> Manual</h3>
         <p>
@@ -39,7 +39,7 @@ export default class Manual extends Component {
         <img
           src={search_bar}
           alt="search bar picture"
-          width="300px"
+          width="100px"
           align="left"
           padding="1rem"
         />
@@ -63,7 +63,7 @@ export default class Manual extends Component {
         </p>
         <br />
         <h3 className="heading-tertiary">Display area</h3>
-        <img src={display_area} alt="display_area picture" width="400px" />
+        <img src={display_area} alt="display_area picture" width="100px" />
         <p>
           The article's title is displayed at the top. The bubbles represent the
           15 most influential words in the article based on their sentiment and

@@ -9,4 +9,9 @@
   font-size: 3rem;
   text-align: center;
   background: transparent;
+
+  @include respond(phone) {
+    width: 100%;
+    padding: 2rem;
+  }
 }

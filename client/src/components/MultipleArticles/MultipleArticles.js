@@ -29,7 +29,7 @@ class MultipleArticles extends Component {
 
   render() {
     return (
-      <div className="titles col-1-of-3">
+      <div className="col-1-of-3 titles ">
         {this.props.articles.map((art, i) => {
           return (
             <div key={i} className="title">

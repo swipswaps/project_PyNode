@@ -3,4 +3,8 @@
   //height: 30vh;
   background-color: darken($color-silver, 40);
   padding-left: 10rem;
+
+  @include respond(phone) {
+    padding: 0 3rem;
+  }
 }

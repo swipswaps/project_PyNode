@@ -5,7 +5,7 @@ import ghassanPhoto from '../assets/ghassanProfile.JPG';
 export default class About extends Component {
   render() {
     return (
-      <div className="manual col-2-of-3">
+      <div className="col-2-of-3 manual">
         <h2 className="heading-secondary">About</h2>
         <img src={profilePhoto} alt="Pavel" width="300px" align="right" />
         <a href="https://www.linkedin.com/in/pavel-rodionov-89aa5037/">

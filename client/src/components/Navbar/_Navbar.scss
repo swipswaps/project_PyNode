@@ -5,6 +5,10 @@
   padding-right: 10rem;
 
   @include clearfix;
+
+  @include respond(phone) {
+    padding-right: 2rem;
+  }
 }
 
 .buttons {

@@ -13,9 +13,8 @@ class MainDisplay extends Component {
     ) : this.props.toggle.manual ? (
       <Manual />
     ) : (
-      <div className="main-display col-2-of-3">
+      <div className="col-2-of-3 main-display">
         <Title />
-        <hr />
         <Circles />
       </div>
     );
