@@ -95,6 +95,9 @@ body {
   @include respond(phone) {
     font-size: 1rem;
     width: 10rem;
+    // float: right;
+    //
+    // @include clearfix;
   }
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Title from '../Title';
+import Title from '../Title/Title';
 import Circles from '../d3/d3';
 import About from '../About';
 import Manual from '../Manual/Manual';

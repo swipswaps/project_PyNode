@@ -1,11 +1,12 @@
 .svg_display {
   width: 100%;
+  // padding-left: 3rem;
 
   svg {
     width: 100%;
-    height: 70vh;
+    height: 63vh;
     font-size: 1.6rem;
     background-color: $color-white;
-    margin-left: 3rem;
+    // margin-left: 3rem;
   }
 }

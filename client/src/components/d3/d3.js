@@ -11,7 +11,7 @@ class Circles extends Component {
   svg_display = React.createRef();
 
   width = 0.6 * window.innerWidth;
-  height = 0.8 * window.innerHeight;
+  height = 0.7 * window.innerHeight;
   scaleIt = this.height;
   t = d3.transition().duration(1000);
   precision = d3.precisionFixed(0.1);

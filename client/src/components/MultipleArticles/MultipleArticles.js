@@ -7,7 +7,7 @@ import { changeDisplay } from '../../actions/displayToggleAction';
 
 const SingularArticle = ({ article: { webTitle, webUrl, id } }) => {
   return (
-    <a href={webUrl} target="_blank" className="title__link">
+    <a href={webUrl} target="_blank" className="headlines__link">
       {webTitle}
     </a>
   );
@@ -29,21 +29,23 @@ class MultipleArticles extends Component {
 
   render() {
     return (
-      <div className="col-1-of-3 titles ">
-        {this.props.articles.map((art, i) => {
-          return (
-            <div key={i} className="title">
-              <SingularArticle article={art} />
-              <button
-                className="analyseBtn btn__link"
-                onClick={() => this.displayViz(i)}
-                article={art}
-              >
-                Analyse
-              </button>
-            </div>
-          );
-        })}
+      <div className="col-1-of-3">
+        <div className="headlines">
+          {this.props.articles.map((art, i) => {
+            return (
+              <div key={i} className="headlines__item">
+                <SingularArticle article={art} />
+                <button
+                  className="analyseBtn btn__link"
+                  onClick={() => this.displayViz(i)}
+                  article={art}
+                >
+                  Analyse
+                </button>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }

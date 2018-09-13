@@ -1,5 +1,6 @@
 .manual {
   padding: 0 5rem;
+  overflow: scroll;
   p {
     font-size: $default-font-size;
     color: darken($color-grey-dark, 15);

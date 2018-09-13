@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { displayTitle } from '../actions/articleTtitleAction';
-import LoadingPage from './LoadingPage';
+import { displayTitle } from '../../actions/articleTtitleAction';
+import LoadingPage from '../LoadingPage';
 
 class Title extends Component {
   render() {

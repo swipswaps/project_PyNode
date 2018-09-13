@@ -20,7 +20,6 @@ class SearchBar extends Component {
 
   switchToggle = event => {
     event.preventDefault();
-    console.log('switch toggle was called');
     this.props.searchBarToggle();
   };
 
