@@ -18,6 +18,8 @@ export class App extends Component {
     this.setState({ articleText: text });
   };
 
+  console.log('adding one line to github')
+
   render() {
     return (
       <Provider store={store}>
