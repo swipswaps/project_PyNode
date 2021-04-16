@@ -107,5 +107,5 @@ project_PyNode$npm run dev
 # Deploying Instructions:
 
 1. cd ./client then "npm run build", then return to the root "cd ..".
-2. comment out "/build" in the gitigonre in the root.
+2. comment out "/build" in the gitignore in the root.
 3. comment out "/build" and "token" in the gitigonre in the root of the client.
